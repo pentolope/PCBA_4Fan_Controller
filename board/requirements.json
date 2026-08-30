@@ -1,0 +1,208 @@
+{
+  "schema_version": 1,
+  "repo": "PCBA_4Fan_Controller",
+  "board_id": "quad_fan_controller",
+  "benchmark_id": 4,
+  "title": "Four-Fan PWM/Tach Controller",
+  "description": "The split between what BRIEF.md fixes and what it leaves open. Every fixed_requirements entry carries the verbatim brief text that substantiates it, bound to the recorded brief digest. An open_decisions entry is a choice for the design agent: record it in 'chosen' with 'rationale', and never move it into fixed_requirements. Missing details are design freedom, not permission to fabricate unstated user requirements.",
+  "brief": {
+    "path": "../BRIEF.md",
+    "sha256": "531862b585105d510d5cae2a7e9f812644b966f14cebd01fc22d28720cdb2ca3",
+    "authority": "supplied by the benchmark; authoritative; preserved byte for byte and never edited"
+  },
+  "metadata": {
+    "category": "mixed-power-digital",
+    "difficulty": 2,
+    "detail": 1,
+    "layers": "2",
+    "stressors": [
+      "PWM/tach routing",
+      "12V distribution",
+      "connector density",
+      "power thermal"
+    ]
+  },
+  "derivation": {
+    "method": "BRIEF.md was read and split; no design decision was taken. Every fixed_requirements entry, and every spec-table row sourced from the brief, carries a quotation that was checked by literal substring match against the brief bytes digested above. The build refuses to emit this file if any quotation is not found.",
+    "quotations_verified": 20,
+    "review": "two rounds of adversarial review against the brief, looking for invented requirements, lost requirements, evidence supporting a weaker claim than the one made beside it, and worksheet questions that presuppose their own answer"
+  },
+  "fixed_requirements": [
+    {
+      "id": "REQ-01",
+      "requirement": "The board shall power and control four standard 4-wire 12 V PC fans.",
+      "brief_evidence": "Build a board that powers and controls four standard 4-wire 12 V PC fans."
+    },
+    {
+      "id": "REQ-02",
+      "requirement": "A microcontroller on the board shall generate PWM for each fan independently (four independent PWM outputs).",
+      "brief_evidence": "A microcontroller should generate independent PWM and read independent tach signals."
+    },
+    {
+      "id": "REQ-03",
+      "requirement": "The microcontroller shall read the tach signal of each fan independently (four independent tach inputs).",
+      "brief_evidence": "generate independent PWM and read independent tach signals"
+    },
+    {
+      "id": "REQ-04",
+      "requirement": "The board shall accept a single 12 V input. The brief fixes one 12 V input; it does not state that this input is the board's only source of energy, so whether anything else (for example the host connection) also supplies power is a decision for the design agent to make and record.",
+      "brief_evidence": "Accept a single 12 V input, derive logic power locally"
+    },
+    {
+      "id": "REQ-05",
+      "requirement": "Logic power shall be derived locally on the board rather than supplied externally.",
+      "brief_evidence": "Accept a single 12 V input, derive logic power locally"
+    },
+    {
+      "id": "REQ-06",
+      "requirement": "The design shall include protection. The brief qualifies it only as \"sensible\" and names no fault modes or devices, so the scope and means of protection must be chosen and justified by the design agent.",
+      "brief_evidence": "derive logic power locally, include sensible protection"
+    },
+    {
+      "id": "REQ-07",
+      "requirement": "The board shall provide a host interface, and that interface shall be simple.",
+      "brief_evidence": "include sensible protection, and provide a simple host interface."
+    },
+    {
+      "id": "REQ-08",
+      "requirement": "The board shall be compact. No dimension is stated, so the design agent must define and record what compact means for this board.",
+      "brief_evidence": "and provide a simple host interface. Keep it compact and serviceable."
+    },
+    {
+      "id": "REQ-09",
+      "requirement": "The board shall be serviceable. No mechanism is stated, so the design agent must define and record what serviceability means for this board.",
+      "brief_evidence": "Keep it compact and serviceable."
+    },
+    {
+      "id": "REQ-10",
+      "requirement": "Stated requirements are authoritative; where the brief is open, the design agent shall make and document reasonable engineering decisions and shall not invent hidden user requirements.",
+      "brief_evidence": "Treat stated requirements as authoritative; where the brief leaves choices open, make and document reasonable engineering decisions rather than inventing hidden user requirements."
+    },
+    {
+      "id": "REQ-11",
+      "requirement": "This repository shall remain a consumer of the shared PCBA_AutoDesignAndTest toolkit; board-specific logic shall not be pushed into the toolkit.",
+      "brief_evidence": "The repository should remain a consumer of the shared `PCBA_AutoDesignAndTest` toolkit rather than accumulating board-specific logic in the toolkit."
+    }
+  ],
+  "open_decisions": [
+    {
+      "id": "OPEN-01",
+      "decision": "Microcontroller selection: family, package, pin count, clock source, memory, and programming/debug interface.",
+      "why_open": "The brief says only \"A microcontroller\" and names no device, vendor, or architecture.",
+      "chosen": null,
+      "rationale": null
+    },
+    {
+      "id": "OPEN-02",
+      "decision": "Logic rail voltage and the conversion topology used to derive it from 12 V (linear versus switching, and the resulting quiescent and thermal behaviour).",
+      "why_open": "The brief requires that logic power be derived locally but states no rail voltage, no load current, and no conversion method.",
+      "chosen": null,
+      "rationale": null
+    },
+    {
+      "id": "OPEN-03",
+      "decision": "Host interface protocol, physical layer, physical connection, addressing/command model, and whether any isolation is provided.",
+      "why_open": "The brief asks only for \"a simple host interface\" and defines neither the bus nor what simple means here.",
+      "chosen": null,
+      "rationale": null
+    },
+    {
+      "id": "OPEN-04",
+      "decision": "PWM generation approach: frequency, duty resolution, whether hardware timer channels or software generation is used, and how the drive level is matched to the fan PWM input.",
+      "why_open": "The brief requires independent PWM but fixes no frequency, resolution, or drive characteristic; those follow from the fan interface convention and the chosen MCU, not from the brief.",
+      "chosen": null,
+      "rationale": null
+    },
+    {
+      "id": "OPEN-05",
+      "decision": "Tach input conditioning: interface to the fan's tach output, any level translation or filtering, protection of the MCU input, and whether edges are captured by interrupt, timer capture, or polling.",
+      "why_open": "The brief requires independent tach reading but says nothing about signal levels, pull-up arrangement, or capture method.",
+      "chosen": null,
+      "rationale": null
+    },
+    {
+      "id": "OPEN-06",
+      "decision": "Scope and means of protection: which fault modes are covered (for example reverse input polarity, overcurrent, input transients, electrostatic discharge at exposed connections, fan stall or shorted fan output) and by what circuit means each is handled.",
+      "why_open": "The brief asks for \"sensible protection\" without enumerating fault modes, protection devices, or any immunity level to be met.",
+      "chosen": null,
+      "rationale": null
+    },
+    {
+      "id": "OPEN-07",
+      "decision": "Whether the 12 V feed to each fan is individually switched, fused, or current-limited, or whether all four fans share one common unswitched 12 V rail.",
+      "why_open": "The brief requires that the board power the fans but does not state per-channel power control, fusing, or current limiting.",
+      "chosen": null,
+      "rationale": null
+    },
+    {
+      "id": "OPEN-08",
+      "decision": "The 12 V current budget: assumed per-fan steady-state and startup current, total input current, and therefore conductor widths, connector current ratings, and any fuse rating.",
+      "why_open": "The brief names no fan wattage, model, or current, so every current figure in the design is an assumption the agent must state and justify, not a given.",
+      "chosen": null,
+      "rationale": null
+    },
+    {
+      "id": "OPEN-09",
+      "decision": "How the four fans attach to the board: connector series or termination style, pitch, orientation, keying, and pin order convention for the 4-wire interface.",
+      "why_open": "The brief says the fans are \"standard 4-wire 12 V PC fans\" but names no connector part number, type, pitch, or footprint.",
+      "chosen": null,
+      "rationale": null
+    },
+    {
+      "id": "OPEN-10",
+      "decision": "How the 12 V input arrives at the board — termination style, part selection, and its mating and retention scheme.",
+      "why_open": "The brief states a single 12 V input but does not specify how that input arrives at the board.",
+      "chosen": null,
+      "rationale": null
+    },
+    {
+      "id": "OPEN-11",
+      "decision": "Board outline, dimensions, mounting hole pattern, edge placement of the external connections, and any keep-out or enclosure constraint.",
+      "why_open": "\"Compact\" is unquantified and the brief gives no mechanical envelope, mounting scheme, or enclosure.",
+      "chosen": null,
+      "rationale": null
+    },
+    {
+      "id": "OPEN-12",
+      "decision": "Concrete realisation of serviceability: test points, silkscreen labelling and channel identification, accessibility and orientation of the external connections, replaceable versus resettable protection, and debug/programming access.",
+      "why_open": "The brief asks for a serviceable board but defines no serviceability features or acceptance criteria.",
+      "chosen": null,
+      "rationale": null
+    },
+    {
+      "id": "OPEN-13",
+      "decision": "Stackup: final layer count, copper weight, and the plane or pour strategy for the 12 V and return paths.",
+      "why_open": "The layer count comes from benchmark metadata as a likely value, not from the brief; no copper weight or plane arrangement is stated anywhere.",
+      "chosen": null,
+      "rationale": null
+    },
+    {
+      "id": "OPEN-14",
+      "decision": "Control policy: whether fan speed is commanded entirely by the host, partly or wholly by on-board logic, and what the board does at power-up or when the host is absent or silent.",
+      "why_open": "The brief describes the control hardware but is silent on control behaviour, defaults, and fail-safe response.",
+      "chosen": null,
+      "rationale": null
+    },
+    {
+      "id": "OPEN-15",
+      "decision": "Local indicators, status LEDs, user controls, and any on-board sensing input.",
+      "why_open": "The brief mentions none of these; adding them is a design choice, and assuming a temperature input or local setpoint control would be inventing a requirement.",
+      "chosen": null,
+      "rationale": null
+    },
+    {
+      "id": "OPEN-16",
+      "decision": "Whether firmware is a deliverable of this repository, and if so its architecture and its boundary with the shared toolkit.",
+      "why_open": "The brief requires a microcontroller but never states firmware scope, while the benchmark intent only constrains what may go into the shared toolkit.",
+      "chosen": null,
+      "rationale": null
+    },
+    {
+      "id": "OPEN-17",
+      "decision": "Whether any source other than the 12 V input contributes power to the board — for example a host connection or a programming/bring-up link that carries power — and how the board behaves when such a source is present or absent.",
+      "why_open": "The brief fixes a single 12 V input and requires logic power to be derived locally, but never states that the 12 V input is the board's only source of energy.",
+      "chosen": null,
+      "rationale": null
+    }
+  ]
+}
