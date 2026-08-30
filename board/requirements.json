@@ -25,6 +25,7 @@
   "derivation": {
     "method": "BRIEF.md was read and split; no design decision was taken. Every fixed_requirements entry, and every spec-table row sourced from the brief, carries a quotation that was checked by literal substring match against the brief bytes digested above. The build refuses to emit this file if any quotation is not found.",
     "quotations_verified": 20,
+    "where_the_quotations_are": "Every one of them is in this file: fixed_requirements[].brief_evidence and brief_spec_rows[].brief_evidence. The count above is the sum of those two lists, so it is recomputable from this repository alone - re-read BRIEF.md and check each string is a substring of it. brief_spec_rows carries the quotations behind the README's spec table, which would otherwise cite the brief with the evidence left in a build script.",
     "review": "two rounds of adversarial review against the brief, looking for invented requirements, lost requirements, evidence supporting a weaker claim than the one made beside it, and worksheet questions that presuppose their own answer"
   },
   "fixed_requirements": [
@@ -82,6 +83,53 @@
       "id": "REQ-11",
       "requirement": "This repository shall remain a consumer of the shared PCBA_AutoDesignAndTest toolkit; board-specific logic shall not be pushed into the toolkit.",
       "brief_evidence": "The repository should remain a consumer of the shared `PCBA_AutoDesignAndTest` toolkit rather than accumulating board-specific logic in the toolkit."
+    }
+  ],
+  "brief_spec_rows": [
+    {
+      "aspect": "Fan channels",
+      "value": "Four standard 4-wire 12 V PC fans, powered and controlled by the board",
+      "brief_evidence": "Build a board that powers and controls four standard 4-wire 12 V PC fans."
+    },
+    {
+      "aspect": "Fan control signals",
+      "value": "Independent PWM per fan (four independent PWM outputs)",
+      "brief_evidence": "A microcontroller should generate independent PWM and read independent tach signals."
+    },
+    {
+      "aspect": "Fan feedback signals",
+      "value": "Independent tach read per fan (four independent tach inputs)",
+      "brief_evidence": "generate independent PWM and read independent tach signals"
+    },
+    {
+      "aspect": "Control element",
+      "value": "A microcontroller performs PWM generation and tach reading; no family, package, or vendor named",
+      "brief_evidence": "A microcontroller should generate independent PWM and read independent tach signals."
+    },
+    {
+      "aspect": "Power input",
+      "value": "A single 12 V input, accepted by the board; the brief fixes one 12 V input and says nothing about whether anything else (for example the host link) also supplies power",
+      "brief_evidence": "Accept a single 12 V input, derive logic power locally"
+    },
+    {
+      "aspect": "Logic power",
+      "value": "Derived locally on the board rather than supplied externally; rail voltage and conversion method not stated",
+      "brief_evidence": "Accept a single 12 V input, derive logic power locally"
+    },
+    {
+      "aspect": "Protection",
+      "value": "Protection is required; the brief says only \"sensible\" and names no fault modes or devices",
+      "brief_evidence": "derive logic power locally, include sensible protection"
+    },
+    {
+      "aspect": "Host interface",
+      "value": "A simple host interface is to be provided; protocol, physical layer, and physical connection not specified",
+      "brief_evidence": "include sensible protection, and provide a simple host interface."
+    },
+    {
+      "aspect": "Mechanical intent",
+      "value": "Compact and serviceable; no dimensions, outline, mounting pattern, or enclosure stated",
+      "brief_evidence": "Keep it compact and serviceable."
     }
   ],
   "open_decisions": [
