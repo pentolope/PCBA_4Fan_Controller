@@ -11,7 +11,14 @@ if REPO_ROOT not in sys.path:
     sys.path.insert(0, REPO_ROOT)
 
 from design import (build, cost, evidence, ksym, libraries,  # noqa: E402
-                    netlist, rules)
+                    netlist, rules, simulation)
+
+TOOLKIT_ROOT = os.path.join(REPO_ROOT, "tooling", "PCBA_AutoDesignAndTest")
+if TOOLKIT_ROOT not in sys.path:
+    sys.path.insert(0, TOOLKIT_ROOT)
+
+from pcbqa.sim import model_registry, ngspice  # noqa: E402
+from pcbqa.sim import scenario as sim_scenario  # noqa: E402
 
 
 class DesignSource(unittest.TestCase):
@@ -266,6 +273,59 @@ class Supply(unittest.TestCase):
         report = cost.bom_cost(netlist.PLANNED_BUILD_QUANTITY)
         self.assertGreater(report["per_board_usd"], 0.0)
         self.assertEqual(len(report["lines"]), len(cost.line_items()))
+
+
+class Scenarios(unittest.TestCase):
+    def setUp(self):
+        self.documents = simulation.documents()
+
+    def test_every_scenario_validates(self):
+        for name, document in self.documents.items():
+            sim_scenario.validate_scenario(document)
+
+    def test_the_committed_scenarios_are_the_generated_ones(self):
+        present = sorted(os.listdir(simulation.SIM_DIR))
+        self.assertEqual(present, sorted(self.documents))
+        for name, document in self.documents.items():
+            with open(os.path.join(simulation.SIM_DIR, name), "r",
+                      encoding="utf-8") as handle:
+                self.assertEqual(json.load(handle), document, name)
+
+    def test_every_scenario_runs_and_every_assertion_holds(self):
+        backend = ngspice.backend_identity()
+        if not backend["available"]:
+            self.skipTest("no ngspice backend: " + backend["detail"])
+        registry = model_registry.ModelRegistry([])
+        work = os.path.join(REPO_ROOT, "out", "sim")
+        for name, document in sorted(self.documents.items()):
+            result = ngspice.run_scenario(
+                registry, document, os.path.join(work, document["name"]))
+            self.assertEqual(result["status"], "ran", name)
+            self.assertTrue(result["converged"], name)
+            for measurement, record in result["measurements"].items():
+                verdict = record["verdict"]
+                if verdict is None:
+                    continue
+                self.assertEqual(verdict["result"], "PASS",
+                                 "%s: %s" % (name, measurement))
+
+    def test_the_simulated_control_low_level_agrees_with_the_requirement(self):
+        backend = ngspice.backend_identity()
+        if not backend["available"]:
+            self.skipTest("no ngspice backend: " + backend["detail"])
+        registry = model_registry.ModelRegistry([])
+        document = self.documents["pre_layout_control_edge.json"]
+        result = ngspice.run_scenario(
+            registry, document,
+            os.path.join(REPO_ROOT, "out", "sim", document["name"]))
+        simulated = result["measurements"]["control_low_level"][
+            "claim"]["quantity"]["value"]
+        parameters = rules.load_parameters()
+        stated = max(
+            entry["measured_v"] for entry in
+            rules.evaluate_control_output(parameters)
+            if entry["id"] == "control_low_level_at_the_required_sink_current")
+        self.assertLessEqual(simulated, stated * 1.05)
 
 
 class StaticVerification(unittest.TestCase):

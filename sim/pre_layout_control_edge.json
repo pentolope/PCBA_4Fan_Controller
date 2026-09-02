@@ -1,0 +1,121 @@
+{
+  "analyses": [
+    {
+      "kind": "tran",
+      "step_s": 2e-08,
+      "stop_s": 0.00012000000000000002
+    }
+  ],
+  "assumptions": {
+    "CFAN": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the fan cable and the clamp as one capacitance to the reference, both declared budgets rather than measurements"
+    },
+    "DRIVE": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the controller's compare output as an ideal switch at the standard's target frequency and half duty"
+    },
+    "FANPULL": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the fan's internal pull-up supply at the highest open-circuit level the standard permits"
+    },
+    "RDSON": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the open-drain driver as its on-resistance at the 2.5 V gate the datasheet characterises, below the logic rail that actually drives it"
+    },
+    "RFAN": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the fan's internal pull-up at the strongest the standard permits, which is the value that sources its stated maximum current into a short; the standard sets no lower bound on that current, so a fan with a weaker pull-up releases the line more slowly than this"
+    },
+    "RSERIES": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the control output's series element at the high end of its tolerance"
+    }
+  },
+  "description": "one control output at the standard's target frequency, against the strongest pull-up the standard permits a fan to present and the capacitance the cable and the clamp add",
+  "elements": [
+    {
+      "kind": "vsource_dc",
+      "name": "FANPULL",
+      "nodes": [
+        "pull",
+        "0"
+      ],
+      "value": 5.25
+    },
+    {
+      "kind": "resistor",
+      "name": "RFAN",
+      "nodes": [
+        "pull",
+        "fan"
+      ],
+      "value": 1050.0
+    },
+    {
+      "kind": "capacitor",
+      "name": "CFAN",
+      "nodes": [
+        "fan",
+        "0"
+      ],
+      "value": 1.6499999999999999e-09
+    },
+    {
+      "kind": "resistor",
+      "name": "RSERIES",
+      "nodes": [
+        "fan",
+        "drain"
+      ],
+      "value": 47.47
+    },
+    {
+      "kind": "resistor",
+      "name": "RDSON",
+      "nodes": [
+        "drain",
+        "sw"
+      ],
+      "value": 0.048
+    },
+    {
+      "kind": "vsource_pulse",
+      "name": "DRIVE",
+      "nodes": [
+        "sw",
+        "0"
+      ],
+      "pulse": {
+        "delay_s": 2.0000000000000003e-06,
+        "fall_s": 4.0000000000000004e-11,
+        "period_s": 4e-05,
+        "rise_s": 4.0000000000000004e-11,
+        "v1": 5.25,
+        "v2": 0.0,
+        "width_s": 2e-05
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "assertion": {
+        "op": "<=",
+        "value": 0.8
+      },
+      "kind": "tran_min_voltage",
+      "name": "control_low_level",
+      "node": "fan"
+    },
+    {
+      "assertion": {
+        "op": ">=",
+        "value": 4.7250000000000005
+      },
+      "kind": "tran_max_voltage",
+      "name": "control_high_level",
+      "node": "fan"
+    }
+  ],
+  "name": "control_edge_into_the_fan_pull_up"
+}

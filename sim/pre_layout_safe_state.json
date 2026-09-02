@@ -1,0 +1,155 @@
+{
+  "analyses": [
+    {
+      "kind": "op"
+    }
+  ],
+  "assumptions": {
+    "RAIL": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the logic rail at the top of the regulator's stated accuracy"
+    },
+    "RLEAKC": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the controller pin's own input leakage at the datasheet maximum, as the resistance that sources it from the rail"
+    },
+    "RLEAKE": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the enable pin's input leakage, as above"
+    },
+    "RPULLDOWNC": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the control gate's pull-down at its nominal value"
+    },
+    "RPULLDOWNE": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the enable gate's pull-down at its nominal value"
+    },
+    "RPULLDOWNP": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the control gate's pull-down, again"
+    },
+    "RPULLUP": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "an internal pull-up at the lowest resistance the datasheet permits, which is not the reset state: after reset every port is a floating input"
+    },
+    "RSERIESC": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the control gate's series element at its nominal value"
+    },
+    "RSERIESP": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the control gate's series element, again"
+    }
+  },
+  "description": "the control driver's gate and the channel enable's gate in the state a controller that has not started leaves them, and the control gate again against an internal pull-up",
+  "elements": [
+    {
+      "kind": "vsource_dc",
+      "name": "RAIL",
+      "nodes": [
+        "rail",
+        "0"
+      ],
+      "value": 3.3329999999999997
+    },
+    {
+      "kind": "resistor",
+      "name": "RLEAKC",
+      "nodes": [
+        "rail",
+        "cpin"
+      ],
+      "value": 47614285.71428571
+    },
+    {
+      "kind": "resistor",
+      "name": "RSERIESC",
+      "nodes": [
+        "cpin",
+        "cgate"
+      ],
+      "value": 100.0
+    },
+    {
+      "kind": "resistor",
+      "name": "RPULLDOWNC",
+      "nodes": [
+        "cgate",
+        "0"
+      ],
+      "value": 100000.0
+    },
+    {
+      "kind": "resistor",
+      "name": "RLEAKE",
+      "nodes": [
+        "rail",
+        "egate"
+      ],
+      "value": 47614285.71428571
+    },
+    {
+      "kind": "resistor",
+      "name": "RPULLDOWNE",
+      "nodes": [
+        "egate",
+        "0"
+      ],
+      "value": 100000.0
+    },
+    {
+      "kind": "resistor",
+      "name": "RPULLUP",
+      "nodes": [
+        "rail",
+        "ppin"
+      ],
+      "value": 25000.0
+    },
+    {
+      "kind": "resistor",
+      "name": "RSERIESP",
+      "nodes": [
+        "ppin",
+        "pgate"
+      ],
+      "value": 100.0
+    },
+    {
+      "kind": "resistor",
+      "name": "RPULLDOWNP",
+      "nodes": [
+        "pgate",
+        "0"
+      ],
+      "value": 100000.0
+    }
+  ],
+  "measurements": [
+    {
+      "assertion": {
+        "op": "<=",
+        "value": 0.65
+      },
+      "kind": "op_voltage",
+      "name": "control_gate_voltage",
+      "node": "cgate"
+    },
+    {
+      "assertion": {
+        "op": "<=",
+        "value": 0.65
+      },
+      "kind": "op_voltage",
+      "name": "enable_gate_voltage",
+      "node": "egate"
+    },
+    {
+      "kind": "op_voltage",
+      "name": "control_gate_voltage_under_an_internal_pull_up",
+      "node": "pgate"
+    }
+  ],
+  "name": "gates_held_off_with_nothing_driving_them"
+}

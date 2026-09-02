@@ -1,0 +1,143 @@
+{
+  "analyses": [
+    {
+      "kind": "tran",
+      "step_s": 1e-05,
+      "stop_s": 0.02
+    }
+  ],
+  "assumptions": {
+    "CBULK": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "every capacitance on the protected rail as one ideal capacitor at the low end of its tolerance, with no ESR, no ESL and no DC bias derating"
+    },
+    "CHOLD": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the hold-up reservoir at the low end of its tolerance"
+    },
+    "RBLOCK": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the reverse-blocking device as its on-resistance at the gate drive the whole rail gives it"
+    },
+    "RDIODE": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the hold-up diode as the resistance that drops its datasheet forward voltage at the logic load, which overstates the drop at every smaller current and cannot represent the blocking it also does"
+    },
+    "RFANS": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "all four fans drawing the standard's maximum start-up current at once, as one resistance sized at the rail the channels are designed to deliver"
+    },
+    "RLOGIC": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the regulator and everything behind it as a fixed resistance drawing the bounded logic current"
+    },
+    "SRC": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the external supply at the low end of the range the board declares at its own terminal, as an ideal source with no output impedance of its own"
+    },
+    "START": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the instant every channel is enabled together, as an ideal switch with no on-resistance; firmware that staggers the starts sees less than this"
+    }
+  },
+  "description": "every channel takes the 4-wire standard's maximum start-up current at once, and the reservoir that feeds the logic regulator is watched",
+  "elements": [
+    {
+      "kind": "vsource_dc",
+      "name": "SRC",
+      "nodes": [
+        "src",
+        "0"
+      ],
+      "value": 11.9
+    },
+    {
+      "kind": "resistor",
+      "name": "RBLOCK",
+      "nodes": [
+        "src",
+        "rail"
+      ],
+      "value": 0.013
+    },
+    {
+      "kind": "capacitor",
+      "name": "CBULK",
+      "nodes": [
+        "rail",
+        "0"
+      ],
+      "value": 8.008999999999999e-05
+    },
+    {
+      "kind": "resistor",
+      "name": "RFANS",
+      "nodes": [
+        "rail",
+        "sink"
+      ],
+      "value": 1.3451272478346958
+    },
+    {
+      "kind": "vsource_pulse",
+      "name": "START",
+      "nodes": [
+        "sink",
+        "0"
+      ],
+      "pulse": {
+        "delay_s": 0.001,
+        "fall_s": 4e-08,
+        "period_s": 0.04,
+        "rise_s": 4e-08,
+        "v1": 11.9,
+        "v2": 0.0,
+        "width_s": 0.02
+      }
+    },
+    {
+      "kind": "resistor",
+      "name": "RDIODE",
+      "nodes": [
+        "rail",
+        "hold"
+      ],
+      "value": 74.8952153082515
+    },
+    {
+      "kind": "capacitor",
+      "name": "CHOLD",
+      "nodes": [
+        "hold",
+        "0"
+      ],
+      "value": 8.008999999999999e-05
+    },
+    {
+      "kind": "resistor",
+      "name": "RLOGIC",
+      "nodes": [
+        "hold",
+        "0"
+      ],
+      "value": 1404.0226363120214
+    }
+  ],
+  "measurements": [
+    {
+      "assertion": {
+        "op": ">=",
+        "value": 4.333
+      },
+      "kind": "tran_min_voltage",
+      "name": "regulator_input_minimum",
+      "node": "hold"
+    },
+    {
+      "kind": "tran_min_voltage",
+      "name": "protected_rail_minimum",
+      "node": "rail"
+    }
+  ],
+  "name": "logic_rail_on_simultaneous_fan_inrush"
+}

@@ -585,6 +585,60 @@ def evaluate_control_short_to_supply(parameters):
     return results
 
 
+def evaluate_channel_turn_off(parameters):
+    """Opening a channel, and unplugging one while it runs.
+
+    The fan cable is an inductance carrying the channel current. When the
+    switch opens - or the plug leaves the header, which is the same event
+    with no warning - that current has to go somewhere, and the channel's
+    Schottky is where. Its magnitude is the channel current: an inductor's
+    current is continuous, so the clamp sees exactly what the channel was
+    carrying and no more.
+    """
+    clamp = _spec(parameters, "D2")["diode"]
+    switch = _spec(parameters, "Q2")["fet"]
+    results = []
+    for channel in range(1, netlist.CHANNEL_COUNT + 1):
+        reference = "D%d" % (channel + 1)
+        results.append({
+            "id": "turn_off_clamp_carries_the_channel_current",
+            "identity": reference,
+            "measured_a": netlist.CHANNEL_CURRENT_RATING_A,
+            "claim": _claim(
+                reference, "A", "protection",
+                netlist.CHANNEL_CURRENT_RATING_A, DIRECT, ("b5819w_jscj",),
+                _requirement("within_the_clamp_repetitive_forward_current",
+                             "<=", clamp["peak_forward_current_a"]["value"]),
+                scope_level="group",
+                assumptions=(
+                    "the current in the cable inductance at the instant of "
+                    "turn-off is the channel current, because an inductor's "
+                    "current does not step",),
+                omissions=(
+                    "how long the clamp carries it depends on the cable "
+                    "inductance and the fan's own input capacitance, neither "
+                    "of which is on this board; the claim is about the "
+                    "magnitude, which the rating covers with margin",)),
+        })
+    negative_excursion_v = clamp["forward_voltage_max_v"]["1"]["value"]
+    results.append({
+        "id": "turn_off_excursion_stays_inside_the_switch_rating",
+        "identity": "FAN1_12V",
+        "measured_v": _net_levels(parameters)["V12P"] + negative_excursion_v,
+        "claim": _claim(
+            "FAN1_12V", "V", "absolute_maximum",
+            _net_levels(parameters)["V12P"] + negative_excursion_v, DIRECT,
+            ("b5819w_jscj", "ao3401a_aos"),
+            _requirement("within_the_switch_drain_source_rating", "<=",
+                         abs(switch["vds_max_v"]["value"])),
+            assumptions=(
+                "the clamp holds the channel output one forward drop below "
+                "the power return, so the open switch stands off the "
+                "protected rail plus that drop and nothing more",)),
+    })
+    return results
+
+
 # ---------------------------------------------------------------------------
 # control timing
 
@@ -1434,6 +1488,7 @@ PRODUCERS = (
     evaluate_control_output,
     evaluate_control_topology,
     evaluate_control_short_to_supply,
+    evaluate_channel_turn_off,
     evaluate_control_timing,
     evaluate_sense_input,
     evaluate_injection_policy,

@@ -1,0 +1,134 @@
+{
+  "analyses": [
+    {
+      "kind": "tran",
+      "step_s": 1.25e-07,
+      "stop_s": 0.0015
+    }
+  ],
+  "assumptions": {
+    "CFAN": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the fan cable and the clamp as one capacitance to the reference, both declared budgets"
+    },
+    "CPIN": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the receiver's filter at the high end of its tolerance plus the datasheet's pin capacitance"
+    },
+    "RAIL": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the logic rail at the low end of the regulator's stated accuracy, which is the worst case for reaching the receiver's high threshold"
+    },
+    "RPULLUP": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the sense pull-up at the high end of its tolerance, the value that charges the line slowest"
+    },
+    "RSAT": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the fan's open-collector output as the resistance that produces the declared output low level at the current this pull-up sources; the standard states neither, so both are the board's declarations"
+    },
+    "RSERIES": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the series element at the high end of its tolerance"
+    },
+    "TACH": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "two pulses per turn at the highest rotation rate the board claims to resolve, as an ideal switch"
+    }
+  },
+  "description": "one sense input pulsed at the rate the board's declared maximum rotation gives, through the pull-up, the cable and clamp capacitance, the series element and the receiver's own filter",
+  "elements": [
+    {
+      "kind": "vsource_dc",
+      "name": "RAIL",
+      "nodes": [
+        "rail",
+        "0"
+      ],
+      "value": 3.267
+    },
+    {
+      "kind": "resistor",
+      "name": "RPULLUP",
+      "nodes": [
+        "rail",
+        "fan"
+      ],
+      "value": 4747.0
+    },
+    {
+      "kind": "capacitor",
+      "name": "CFAN",
+      "nodes": [
+        "fan",
+        "0"
+      ],
+      "value": 1.6499999999999999e-09
+    },
+    {
+      "kind": "resistor",
+      "name": "RSERIES",
+      "nodes": [
+        "fan",
+        "pin"
+      ],
+      "value": 4747.0
+    },
+    {
+      "kind": "capacitor",
+      "name": "CPIN",
+      "nodes": [
+        "pin",
+        "0"
+      ],
+      "value": 9.050000000000001e-10
+    },
+    {
+      "kind": "resistor",
+      "name": "RSAT",
+      "nodes": [
+        "fan",
+        "sink"
+      ],
+      "value": 558.4158415841586
+    },
+    {
+      "kind": "vsource_pulse",
+      "name": "TACH",
+      "nodes": [
+        "sink",
+        "0"
+      ],
+      "pulse": {
+        "delay_s": 2.5e-05,
+        "fall_s": 5e-10,
+        "period_s": 0.0005,
+        "rise_s": 5e-10,
+        "v1": 3.267,
+        "v2": 0.0,
+        "width_s": 0.00025
+      }
+    }
+  ],
+  "measurements": [
+    {
+      "assertion": {
+        "op": ">=",
+        "value": 2.2868999999999997
+      },
+      "kind": "tran_max_voltage",
+      "name": "receiver_high_level",
+      "node": "pin"
+    },
+    {
+      "assertion": {
+        "op": "<=",
+        "value": 0.9801
+      },
+      "kind": "tran_min_voltage",
+      "name": "receiver_low_level",
+      "node": "pin"
+    }
+  ],
+  "name": "sense_edge_at_the_top_declared_rotation_rate"
+}
