@@ -17,6 +17,10 @@ def project_path():
     return os.path.join(REPO_ROOT, netlist.PROJECT_NAME + ".kicad_pro")
 
 
+def rules_path():
+    return os.path.join(REPO_ROOT, netlist.PROJECT_NAME + ".kicad_dru")
+
+
 def generate_schematic_text():
     netlist.pin_to_net()
     tree = schematic.build(

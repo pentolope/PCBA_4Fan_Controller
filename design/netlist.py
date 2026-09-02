@@ -251,11 +251,16 @@ def _nets():
         power_ground.append("D%d.2" % (channel + 1))
         power_ground.append("D%d.2" % (channel + 10))
         power_ground.append("D%d.2" % (channel + 14))
-        signal_ground.append("Q%d.2" % (channel + 5))
-        signal_ground.append("Q%d.2" % (channel + 9))
-        signal_ground.append("R%d.2" % (channel + 9))
-        signal_ground.append("R%d.2" % (channel + 17))
-        signal_ground.append("R%d.2" % (channel + 37))
+        # Everything in a channel returns to the power ground, including
+        # the control driver's source: the level the fan measures is between
+        # its own control pin and its own ground pin, and both of those are
+        # the connector's, not the controller's. Only the sense filter is on
+        # the signal ground, because it sits at the receiver.
+        power_ground.append("Q%d.2" % (channel + 5))
+        power_ground.append("Q%d.2" % (channel + 9))
+        power_ground.append("R%d.2" % (channel + 9))
+        power_ground.append("R%d.2" % (channel + 17))
+        power_ground.append("R%d.2" % (channel + 37))
         signal_ground.append("C%d.2" % (channel + 8))
         logic_rail.append("R%d.2" % (channel + 25))
         logic_rail.append("D%d.1" % (channel + 6))

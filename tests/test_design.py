@@ -10,8 +10,8 @@ REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if REPO_ROOT not in sys.path:
     sys.path.insert(0, REPO_ROOT)
 
-from design import (build, cost, evidence, ksym, libraries,  # noqa: E402
-                    netlist, rules, simulation)
+from design import (build, cost, evidence, ksym, layout,  # noqa: E402
+                    libraries, manifest, netlist, rules, simulation)
 
 TOOLKIT_ROOT = os.path.join(REPO_ROOT, "tooling", "PCBA_AutoDesignAndTest")
 if TOOLKIT_ROOT not in sys.path:
@@ -169,7 +169,7 @@ class ControlInterface(unittest.TestCase):
             self.assertEqual(driver["mpn"], "AO3400A")
             mapping = netlist.pin_to_net()
             self.assertEqual(mapping["Q%d.2" % (channel + 9)],
-                             netlist.SIGNAL_GROUND_NET)
+                             netlist.POWER_GROUND_NET)
 
     def test_the_declared_divider_reaches_the_standard_band(self):
         parameters = rules.load_parameters()
@@ -326,6 +326,77 @@ class Scenarios(unittest.TestCase):
             rules.evaluate_control_output(parameters)
             if entry["id"] == "control_low_level_at_the_required_sink_current")
         self.assertLessEqual(simulated, stated * 1.05)
+
+
+class Manifest(unittest.TestCase):
+    def setUp(self):
+        self.document = manifest.document()
+
+    def test_the_committed_manifest_is_the_generated_one(self):
+        with open(manifest.MANIFEST_PATH, "r", encoding="utf-8") as handle:
+            self.assertEqual(json.load(handle), self.document)
+
+    def test_every_connector_contract_matches_the_netlist(self):
+        mapping = netlist.pin_to_net()
+        for contract in self.document["connector_contracts"]:
+            reference = contract["reference"]
+            for number, net in contract["pin_map"].items():
+                self.assertEqual(mapping["%s.%s" % (reference, number)], net)
+
+    def test_the_constraint_floor_is_what_the_project_is_written_with(self):
+        floor = self.document["checks"]["drc"]["constraint_floor"]
+        self.assertEqual(floor["rules"], build.DESIGN_RULES)
+        for entry in build.NET_CLASSES:
+            self.assertIn(entry["name"], floor["net_classes"])
+
+    def test_every_declared_scenario_file_exists(self):
+        for stage, names in self.document["simulation"]["stages"].items():
+            for name in names:
+                self.assertTrue(
+                    os.path.isfile(os.path.join(REPO_ROOT, name)),
+                    "%s: %s" % (stage, name))
+        for stage in self.document["simulation"]["required_stages"]:
+            self.assertIn(stage, self.document["simulation"]["stages"])
+
+    def test_every_placement_rule_counts_what_the_netlist_holds(self):
+        import re
+        for rule in self.document["placement_rules"]:
+            pattern = re.compile(rule["reference_regex"])
+            found = [reference for reference in netlist.PARTS
+                     if pattern.match(reference)]
+            self.assertEqual(len(found), rule["count"], rule["id"])
+
+
+class Board(unittest.TestCase):
+    def test_the_two_ground_pours_do_not_meet(self):
+        bands = layout.ground_bands_mm()
+        power = bands[netlist.POWER_GROUND_NET]
+        signal = bands[netlist.SIGNAL_GROUND_NET]
+        self.assertLess(power[1], signal[0])
+        self.assertGreaterEqual(signal[0] - power[1],
+                                layout.CLEARANCE_MM)
+
+    def test_the_star_link_straddles_the_gap(self):
+        x, y, _ = layout.SHARED_PLACEMENT[netlist.GROUND_STAR_REFERENCE]
+        bands = layout.ground_bands_mm()
+        self.assertGreater(y, bands[netlist.POWER_GROUND_NET][1])
+        self.assertLess(y, bands[netlist.SIGNAL_GROUND_NET][0])
+        del x
+
+    def test_every_part_with_a_footprint_has_a_seed_pose(self):
+        placed = layout.seed_placement()
+        missing = sorted(reference for reference, part in netlist.PARTS.items()
+                         if part["footprint"] and reference not in placed)
+        self.assertEqual(missing, [])
+
+    def test_the_locked_set_is_the_board_s_mechanical_and_service_contract(self):
+        expected = {netlist.GROUND_STAR_REFERENCE}
+        for reference, part in netlist.PARTS.items():
+            if not part["footprint"]:
+                continue
+            if reference.startswith(("J", "H", "TP", "F")):
+                expected.add(reference)
+        self.assertEqual(set(layout.LOCKED_REFERENCES), expected)
 
 
 class StaticVerification(unittest.TestCase):

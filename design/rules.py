@@ -466,12 +466,11 @@ def evaluate_control_output(parameters):
                     assumptions=(
                         "the driver's on-resistance is taken at the 2.5 V "
                         "gate the datasheet characterises, which is below "
-                        "the logic rail that actually drives it",),
-                    omissions=(
-                        "the connector's own ground pin sits above the "
-                        "signal reference by the fan return drop, which "
-                        "lowers the level the fan measures; ignoring it is "
-                        "the conservative direction",)),
+                        "the logic rail that actually drives it",
+                        "the driver's source is on the power ground, the "
+                        "same system the connector's own ground pin is on, "
+                        "so the level the fan measures carries no offset "
+                        "from the controller's reference",)),
             })
     leakage_a = (driver["drain_leakage_max_a"]["value"]
                  + clamp["leakage_max_a"]["value"])

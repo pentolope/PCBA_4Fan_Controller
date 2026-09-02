@@ -1,0 +1,659 @@
+{
+  "archive": {
+    "allow": [
+      {
+        "file_function": "Copper,L1,Top",
+        "min_count": 1,
+        "require_payload": true
+      },
+      {
+        "file_function": "Copper,L2,Bot",
+        "min_count": 1,
+        "require_payload": true
+      },
+      {
+        "file_function": "Soldermask,Top",
+        "min_count": 1,
+        "require_payload": true
+      },
+      {
+        "file_function": "Soldermask,Bot",
+        "min_count": 1,
+        "require_payload": true
+      },
+      {
+        "file_function": "Legend,Top",
+        "min_count": 1,
+        "require_payload": true
+      },
+      {
+        "file_function": "Legend,Bot",
+        "min_count": 1,
+        "require_payload": false
+      },
+      {
+        "file_function": "Paste,Top",
+        "min_count": 1,
+        "require_payload": true
+      },
+      {
+        "file_function": "Profile,NP",
+        "min_count": 1,
+        "require_payload": true
+      },
+      {
+        "file_function": "Drill/plated",
+        "min_count": 1,
+        "require_payload": true
+      },
+      {
+        "file_function": "Drill/nonplated",
+        "min_count": 1,
+        "require_payload": true
+      },
+      {
+        "file_function": "JobFile",
+        "min_count": 1,
+        "require_payload": true
+      }
+    ],
+    "zip": "generated/release/quad_fan_controller-fabrication.zip"
+  },
+  "artifacts": {
+    "bom": "generated/release/bom.csv",
+    "cpl": "generated/release/cpl.csv",
+    "cpl_fields": {
+      "designator": "Ref",
+      "rotation": "Rot",
+      "side": "Side",
+      "x": "PosX",
+      "y": "PosY"
+    },
+    "cpl_origin": {
+      "frame": "absolute page origin",
+      "offset_mm": [
+        0.0,
+        0.0
+      ]
+    },
+    "fabrication_manifest": "generated/release/fabrication.json",
+    "gerber_dir": "generated/release/gerbers",
+    "gerber_export_flags": [
+      "--layers",
+      "F.Cu,B.Cu,F.Paste,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask,Edge.Cuts",
+      "--no-protel-ext",
+      "--use-drill-file-origin",
+      "--subtract-soldermask"
+    ],
+    "position_tolerance_mm": 0.01,
+    "reports_dir": "generated/release/reports",
+    "validation_report": "generated/release/validation.json"
+  },
+  "assembly": {
+    "bom_fields": {
+      "LCSC": "LCSC Part #",
+      "designators": "Designator",
+      "footprint": "Footprint",
+      "quantity": "Quantity",
+      "value": "Comment"
+    },
+    "compared_part_fields": [
+      "LCSC",
+      "MPN",
+      "Manufacturer"
+    ],
+    "required_part_fields": [
+      "LCSC"
+    ],
+    "schematic_export": {
+      "dnp_label": "DNP",
+      "exclude_label": "ExcludeFromBOM",
+      "fields": [
+        "Reference",
+        "Value",
+        "Footprint",
+        "${DNP}",
+        "${EXCLUDE_FROM_BOM}",
+        "LCSC",
+        "MPN",
+        "Manufacturer"
+      ],
+      "flags": [],
+      "footprint_label": "Footprint",
+      "labels": [
+        "Reference",
+        "Value",
+        "Footprint",
+        "DNP",
+        "ExcludeFromBOM",
+        "LCSC",
+        "MPN",
+        "Manufacturer"
+      ],
+      "reference_label": "Reference",
+      "true_tokens": [
+        "1",
+        "true",
+        "yes",
+        "x",
+        "dnp"
+      ],
+      "value_label": "Value"
+    },
+    "schematic_fields": [
+      "LCSC",
+      "MPN",
+      "Manufacturer"
+    ]
+  },
+  "board_id": "quad_fan_controller",
+  "board_origin_mm": [
+    0.0,
+    0.0
+  ],
+  "checks": {
+    "drc": {
+      "constraint_floor": {
+        "net_classes": {
+          "Default": {
+            "clearance": 0.15,
+            "track_width": 0.25,
+            "via_diameter": 0.6,
+            "via_drill": 0.3
+          }
+        },
+        "rules": {
+          "min_clearance": 0.15,
+          "min_copper_edge_clearance": 0.3,
+          "min_hole_clearance": 0.25,
+          "min_hole_to_hole": 0.25,
+          "min_through_hole_diameter": 0.25,
+          "min_track_width": 0.15,
+          "min_via_annular_width": 0.1,
+          "min_via_diameter": 0.45
+        }
+      },
+      "extra_flags": [],
+      "forbidden_severities": [
+        "ignore"
+      ],
+      "permitted_ignored_rules": []
+    },
+    "erc": {
+      "extra_flags": []
+    }
+  },
+  "connector_contracts": [
+    {
+      "id": "supply_input",
+      "pin_map": {
+        "1": "V12IN",
+        "2": "PGND"
+      },
+      "population": {
+        "dnp": false,
+        "exclude_from_bom": false
+      },
+      "reference": "J1",
+      "required_pitch_mm": 5.08,
+      "required_positions": 2,
+      "required_rows": 1,
+      "required_side": "front"
+    },
+    {
+      "id": "fan_connector_ch1",
+      "pin_map": {
+        "1": "PGND",
+        "2": "FAN1_12V",
+        "3": "FAN1_TACH",
+        "4": "FAN1_PWM"
+      },
+      "population": {
+        "dnp": false,
+        "exclude_from_bom": false
+      },
+      "reference": "J2",
+      "required_pitch_mm": 2.54,
+      "required_positions": 4,
+      "required_rows": 1,
+      "required_side": "front"
+    },
+    {
+      "id": "fan_connector_ch2",
+      "pin_map": {
+        "1": "PGND",
+        "2": "FAN2_12V",
+        "3": "FAN2_TACH",
+        "4": "FAN2_PWM"
+      },
+      "population": {
+        "dnp": false,
+        "exclude_from_bom": false
+      },
+      "reference": "J3",
+      "required_pitch_mm": 2.54,
+      "required_positions": 4,
+      "required_rows": 1,
+      "required_side": "front"
+    },
+    {
+      "id": "fan_connector_ch3",
+      "pin_map": {
+        "1": "PGND",
+        "2": "FAN3_12V",
+        "3": "FAN3_TACH",
+        "4": "FAN3_PWM"
+      },
+      "population": {
+        "dnp": false,
+        "exclude_from_bom": false
+      },
+      "reference": "J4",
+      "required_pitch_mm": 2.54,
+      "required_positions": 4,
+      "required_rows": 1,
+      "required_side": "front"
+    },
+    {
+      "id": "fan_connector_ch4",
+      "pin_map": {
+        "1": "PGND",
+        "2": "FAN4_12V",
+        "3": "FAN4_TACH",
+        "4": "FAN4_PWM"
+      },
+      "population": {
+        "dnp": false,
+        "exclude_from_bom": false
+      },
+      "reference": "J5",
+      "required_pitch_mm": 2.54,
+      "required_positions": 4,
+      "required_rows": 1,
+      "required_side": "front"
+    },
+    {
+      "id": "host_interface_header",
+      "pin_map": {
+        "1": "GND",
+        "2": "HOST_TX",
+        "3": "HOST_RX"
+      },
+      "population": {
+        "dnp": false,
+        "exclude_from_bom": false
+      },
+      "reference": "J6",
+      "required_pitch_mm": 2.54,
+      "required_positions": 3,
+      "required_rows": 1,
+      "required_side": "front"
+    },
+    {
+      "id": "programming_header",
+      "pin_map": {
+        "1": "GND",
+        "2": "+3V3",
+        "3": "SWD_DIO",
+        "4": "SWD_CLK",
+        "5": "NRST"
+      },
+      "population": {
+        "dnp": false,
+        "exclude_from_bom": false
+      },
+      "reference": "J7",
+      "required_pitch_mm": 2.54,
+      "required_positions": 5,
+      "required_rows": 1,
+      "required_side": "front"
+    }
+  ],
+  "connector_gender_tokens": {
+    "plug": [
+      "plug",
+      "header",
+      "male"
+    ],
+    "receptacle": [
+      "receptacle",
+      "socket",
+      "female"
+    ]
+  },
+  "constraint_version": "layout-stage-2026-09-02",
+  "documentation_globs": [
+    "BRIEF.md"
+  ],
+  "fixture": {
+    "attributes_file": ".gitattributes"
+  },
+  "geometry_profile": {
+    "tolerances": {
+      "clearance_match_mm": {
+        "units": "mm",
+        "value": 0.01
+      },
+      "contact_mm": {
+        "units": "mm",
+        "value": 1e-06
+      },
+      "coordinate_match_mm": {
+        "units": "mm",
+        "value": 0.002
+      },
+      "dimension_match_mm": {
+        "units": "mm",
+        "value": 0.002
+      },
+      "layer_symmetric_difference_mm2": {
+        "units": "mm2",
+        "value": 0.05
+      },
+      "polygon_chord_error_mm": {
+        "units": "mm",
+        "value": 0.001
+      },
+      "rotation_match_deg": {
+        "units": "deg",
+        "value": 0.1
+      },
+      "waiver_location_mm": {
+        "units": "mm",
+        "value": 0.001
+      }
+    },
+    "version": "geom-1"
+  },
+  "net_topology": {
+    "rules": [
+      {
+        "id": "CHANNEL_SUPPLY_PATHS",
+        "load_pad_regex": "^J[2-5]\\.2$",
+        "max_vias_per_net": 0,
+        "net_regex": "^FAN\\d_12V$",
+        "permitted_layers": [
+          "F.Cu"
+        ],
+        "source_pad_regex": "^Q[2-5]\\.3$"
+      }
+    ]
+  },
+  "placement_rules": [
+    {
+      "count": 4,
+      "id": "FAN_CONNECTORS",
+      "reference_regex": "^J[2-5]$"
+    },
+    {
+      "count": 4,
+      "id": "CHANNEL_FUSES",
+      "reference_regex": "^F[1-4]$"
+    },
+    {
+      "count": 4,
+      "id": "CHANNEL_SWITCHES",
+      "reference_regex": "^Q[2-5]$"
+    },
+    {
+      "count": 4,
+      "id": "CHANNEL_ENABLES",
+      "reference_regex": "^Q[6-9]$"
+    },
+    {
+      "count": 4,
+      "id": "CONTROL_DRIVERS",
+      "reference_regex": "^Q1[0-3]$"
+    },
+    {
+      "count": 4,
+      "id": "CHANNEL_CLAMPS",
+      "reference_regex": "^D[2-5]$"
+    },
+    {
+      "count": 4,
+      "id": "SENSE_CLAMPS",
+      "reference_regex": "^D([7-9]|10)$"
+    },
+    {
+      "count": 8,
+      "id": "FAN_SIDE_SUPPRESSORS",
+      "reference_regex": "^D1[1-8]$"
+    },
+    {
+      "count": 5,
+      "id": "LOGIC_SUPPRESSORS",
+      "reference_regex": "^D(19|2[0-3])$"
+    },
+    {
+      "count": 12,
+      "id": "PROBES",
+      "reference_regex": "^TP([1-9]|1[0-2])$"
+    },
+    {
+      "count": 4,
+      "id": "MOUNTING",
+      "reference_regex": "^H[1-4]$"
+    }
+  ],
+  "project_root": "..",
+  "release_generation": {
+    "archive": {
+      "zip": "quad_fan_controller-fabrication.zip"
+    },
+    "bom": {
+      "field_map": {
+        "LCSC": "LCSC Part #",
+        "designators": "Designator",
+        "footprint": "Footprint",
+        "quantity": "Quantity",
+        "value": "Comment"
+      },
+      "fields": [
+        "${QUANTITY}",
+        "Reference",
+        "Value",
+        "Footprint",
+        "LCSC"
+      ],
+      "flags": [
+        "--exclude-dnp",
+        "--ref-range-delimiter",
+        ""
+      ],
+      "group_by": [
+        "Value",
+        "Footprint",
+        "LCSC"
+      ],
+      "labels": [
+        "Quantity",
+        "Designator",
+        "Comment",
+        "Footprint",
+        "LCSC Part #"
+      ],
+      "output": "bom.csv"
+    },
+    "cpl": {
+      "field_map": {
+        "designator": "Ref",
+        "rotation": "Rot",
+        "side": "Side",
+        "x": "PosX",
+        "y": "PosY"
+      },
+      "flags": [
+        "--format",
+        "csv",
+        "--units",
+        "mm",
+        "--side",
+        "both",
+        "--exclude-dnp"
+      ],
+      "origin": {
+        "frame": "absolute page origin",
+        "offset_mm": [
+          0.0,
+          0.0
+        ]
+      },
+      "output": "cpl.csv"
+    },
+    "drc": {
+      "output": "drc.json"
+    },
+    "drill": {
+      "flags": [
+        "--format",
+        "excellon",
+        "--excellon-separate-th",
+        "--drill-origin",
+        "plot"
+      ]
+    },
+    "erc": {
+      "output": "erc.json"
+    },
+    "lock_file_globs": [
+      "*.lck",
+      "~*.lck",
+      ".#*",
+      "*-lock",
+      "*.kicad_prl-lock"
+    ]
+  },
+  "release_profile": {
+    "id": "jlcpcb-2layer-assembled",
+    "mandatory_gates": [
+      "ARCH.CONTENTS",
+      "ARCH.PROVENANCE",
+      "BOM.NATIVE_PARITY",
+      "CONTRACT.CONNECTOR",
+      "CONTRACT.PLACEMENT",
+      "CPL.NATIVE_PARITY",
+      "DRC.AUTHORITATIVE",
+      "DRC.CONSTRAINT_FLOOR",
+      "DRC.NO_SUPPRESSED_RULES",
+      "ERC.AUTHORITATIVE",
+      "NET.TOPOLOGY",
+      "PROV.REPORT_FRESHNESS",
+      "ROUTE.GEOMETRY_HYGIENE",
+      "ROUTE.PROVENANCE",
+      "ROUTE.TINY_SEGMENTS",
+      "SIM.SCENARIOS",
+      "SIM.STAGE_COVERAGE",
+      "STACK.GERBER_PARITY",
+      "STACK.NATIVE_VS_MANIFEST",
+      "VIA.ANNULUS_MASK_OVERLAP",
+      "VIA.IN_PAD_CONTACT",
+      "VIA.MASK_CLEARANCE_TARGET"
+    ],
+    "required_evidence": [
+      "evidence/index.json",
+      "fab/selection.json",
+      "generated/requirements.json",
+      "generated/routing.json"
+    ]
+  },
+  "reports": {
+    "closure_field": "source_closure_sha256",
+    "date_field": "date",
+    "files": [
+      "generated/release/reports/erc.json",
+      "generated/release/reports/drc.json"
+    ],
+    "require_source_hash": true,
+    "source_closure": [
+      "*.kicad_sch",
+      "*.kicad_pcb",
+      "*.kicad_pro",
+      "*.kicad_dru",
+      "constraints/*.json",
+      "sim/*.json",
+      "fab/*.json",
+      "components/*.json",
+      "evidence/index.json"
+    ],
+    "source_field": "source",
+    "source_hash_field": "source_sha256",
+    "tolerance_seconds": 0
+  },
+  "routing": {
+    "acceptance_gates": [
+      "ERC.AUTHORITATIVE",
+      "DRC.AUTHORITATIVE",
+      "DRC.NO_SUPPRESSED_RULES",
+      "DRC.CONSTRAINT_FLOOR",
+      "NET.TOPOLOGY",
+      "ROUTE.GEOMETRY_HYGIENE",
+      "ROUTE.TINY_SEGMENTS",
+      "ROUTE.PROVENANCE",
+      "CONTRACT.PLACEMENT",
+      "CONTRACT.CONNECTOR",
+      "STACK.NATIVE_VS_MANIFEST",
+      "VIA.ANNULUS_MASK_OVERLAP",
+      "VIA.IN_PAD_CONTACT",
+      "SIM.SCENARIOS",
+      "SIM.STAGE_COVERAGE"
+    ],
+    "hygiene": {
+      "forbid_dangling": true,
+      "forbid_duplicate_geometry": true,
+      "forbid_net_crossings": true
+    },
+    "min_segment_mm": 0.1,
+    "provenance": "generated/routing.json",
+    "short_segment_justification": {
+      "allow_pad_or_via_entry": true
+    }
+  },
+  "schema_version": 2,
+  "simulation": {
+    "required_stages": [
+      "pre_layout"
+    ],
+    "stages": {
+      "pre_layout": [
+        "sim/pre_layout_control_edge.json",
+        "sim/pre_layout_logic_rail_inrush.json",
+        "sim/pre_layout_safe_state.json",
+        "sim/pre_layout_sense_edge.json"
+      ]
+    }
+  },
+  "sources": {
+    "pcb": "quad_fan_controller.kicad_pcb",
+    "project": "quad_fan_controller.kicad_pro",
+    "schematic": "quad_fan_controller.kicad_sch"
+  },
+  "stackup": {
+    "expected": [
+      {
+        "plane_net": "V12P",
+        "role": "plane"
+      },
+      {
+        "plane_net": "PGND",
+        "role": "plane"
+      }
+    ]
+  },
+  "tools": {
+    "kicad_cli": "kicad-cli"
+  },
+  "via_mask": {
+    "contact_semantics": "annulus_contacts counts zero-distance tangency as contact; annulus_strict_overlaps counts positive shared area only",
+    "design_target_mm": 0.15,
+    "mask_dam_rule": "contact",
+    "metric": "annulus_to_opening_mm",
+    "pad_contact": {
+      "populated_pad_attributes": [
+        "SMD"
+      ],
+      "require_paste": true
+    }
+  },
+  "waivers": []
+}

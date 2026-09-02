@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "board_id": "quad_fan_controller",
+  "constraint_version": "layout-stage-2026-09-02",
+  "release_profile": "jlcpcb-2layer-assembled",
+  "generated_utc": "2026-09-02T16:22:35.917878+00:00",
+  "source_closure_sha256": "6ce5776ae74f411fff7d51782efe0f545bac3b4eda60449f3b53a47a067f5ddf",
+  "source_closure_files": 15,
+  "tools": {
+    "kicad": "10.0.5",
+    "kicad_cli": "kicad-cli"
+  },
+  "toolkit": {
+    "commit": "a8c0c683478db5570a47055f36d45039159510a8",
+    "working_tree_dirty": false,
+    "detail": "git HEAD of the toolkit checkout that executed this validation"
+  },
+  "commands": [
+    "kicad-cli sch erc --output erc.json --format json --severity-all --severity-exclusions --exit-code-violations quad_fan_controller.kicad_sch",
+    "kicad-cli pcb drc --output drc.json --format json --severity-all --severity-exclusions --all-track-errors --schematic-parity --refill-zones --save-board --exit-code-violations quad_fan_controller.kicad_pcb",
+    "kicad-cli pcb export gerbers --output export --layers F.Cu,B.Cu,F.Paste,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask,Edge.Cuts --no-protel-ext --use-drill-file-origin --subtract-soldermask quad_fan_controller.kicad_pcb",
+    "kicad-cli pcb export drill --output export --format excellon --excellon-separate-th --drill-origin plot quad_fan_controller.kicad_pcb",
+    "kicad-cli pcb export pos --output cpl.csv --format csv --units mm --side both --exclude-dnp quad_fan_controller.kicad_pcb",
+    "kicad-cli sch export bom --output bom.csv --fields ${QUANTITY},Reference,Value,Footprint,LCSC --labels Quantity,Designator,Comment,Footprint,LCSC Part # --group-by Value,Footprint,LCSC --exclude-dnp --ref-range-delimiter  quad_fan_controller.kicad_sch",
+    "zip quad_fan_controller-fabrication.zip"
+  ],
+  "artifacts": {
+    "bom.csv": "85a9cf3805d9c5de6792119d96005adaa814773f17b5d3682203a39fe9ceb4d8",
+    "cpl.csv": "4a68f66f6fa9fdc198fe0ff4b91f02a755f8945bddd5b97443c8505f6ef1a6b8",
+    "gerbers/quad_fan_controller-B_Cu.gbr": "5e8174f069b42c7c1a95cebf25c0d2af8a1ac2a2dcc0204b38b98dca12700f38",
+    "gerbers/quad_fan_controller-B_Mask.gbr": "67461e6aca4cecef1fbe1c08167b53ca1de222ea875ec665ab6df0a4e6ca8dad",
+    "gerbers/quad_fan_controller-B_Silkscreen.gbr": "2fd668b12576dd8f98a217548ee2adafa5a41df72fd2e15792ff340ba067ae92",
+    "gerbers/quad_fan_controller-Edge_Cuts.gbr": "03c71111cd26a7d7ab692fe06bdc8d864d47180857ed27a480f7d9223b442086",
+    "gerbers/quad_fan_controller-F_Cu.gbr": "4b0fb227858c45d44dc6bedf0d9351ba8cc556497e305eea1fe7f91506477384",
+    "gerbers/quad_fan_controller-F_Mask.gbr": "3b243745dd6507735e96074960e4f9682f061f6c29997b29aa51db00d1c9af2a",
+    "gerbers/quad_fan_controller-F_Paste.gbr": "17b5346969b4a94f22f3ce632944ed999747e94dad9d1ede7a03aa19b51ffa10",
+    "gerbers/quad_fan_controller-F_Silkscreen.gbr": "30e36dc26587421f8eb0ec5518cd602d2f4335eac7429f4c34a67ff6e4eef629",
+    "gerbers/quad_fan_controller-NPTH.drl": "e7941c43a681771d2c965bffa46e3986226536ef10a738171505076fdf47ed14",
+    "gerbers/quad_fan_controller-PTH.drl": "8581fd2b08d2be22aad04841def3a58ba8a91dfdb4456c87b8401438d9c24d69",
+    "gerbers/quad_fan_controller-job.gbrjob": "80a78c541545a90f2db9256bee7c7ac3be4d9ece8bfdd58f950bcdc72c37f40b",
+    "quad_fan_controller-fabrication.zip": "b225a3da79818e060dc12c57a2b5d06d6b34ff89fcb6276eca5447318e5fd0c1",
+    "reports/drc.json": "df77b164e8826ed092a075314e55fc8db5b241764ebadc65dc56d6a1023e1334",
+    "reports/erc.json": "e89aaabd80df9c1f3357ff0abca915d7b57530e29499265cec156cfbf776719e"
+  },
+  "excluded_layers": []
+}

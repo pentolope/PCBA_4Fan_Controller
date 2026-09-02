@@ -1,0 +1,22 @@
+{
+  "$schema": "https://schemas.kicad.org/erc.v1.json",
+  "coordinate_units": "mm",
+  "date": "2026-09-02T10:22:32",
+  "ignored_checks": [],
+  "included_severities": [
+    "error",
+    "warning",
+    "exclusion"
+  ],
+  "kicad_version": "10.0.5",
+  "sheets": [
+    {
+      "path": "/",
+      "uuid_path": "/8e93afe8-1696-58a8-9ef2-7d23d190886e",
+      "violations": []
+    }
+  ],
+  "source": "quad_fan_controller.kicad_sch",
+  "source_sha256": "f2927e250995e23a8f923d060a7f9e58f02fd3f3d83184918d7a2f02d38cf7aa",
+  "source_closure_sha256": "6ce5776ae74f411fff7d51782efe0f545bac3b4eda60449f3b53a47a067f5ddf"
+}

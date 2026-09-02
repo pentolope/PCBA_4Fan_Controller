@@ -1,0 +1,398 @@
+"""The board's manifest, generated from the design source rather than typed.
+
+The manifest is what the validator reads: which files are the design, which
+gates are mandatory, what the connectors carry, what the stackup is. Every one
+of those is already stated somewhere in this repository - in the netlist, in
+the layout, in the fabrication requirements - and a manifest typed by hand is
+a second copy of all of it that can drift from the first.
+
+So it is generated. The pin maps come from the netlist's own connector
+contract, the constraint floor from the design settings the board file is
+written with, and the simulation stages from the scenarios that exist.
+"""
+from __future__ import annotations
+
+import json
+import os
+import sys
+
+from . import build, layout, netlist, simulation
+
+MANIFEST_PATH = os.path.join(layout.REPO_ROOT, "board", "manifest.json")
+
+RELEASE_PROFILE_ID = "jlcpcb-2layer-assembled"
+
+MANDATORY_GATES = (
+    "ARCH.CONTENTS",
+    "ARCH.PROVENANCE",
+    "BOM.NATIVE_PARITY",
+    "CONTRACT.CONNECTOR",
+    "CONTRACT.PLACEMENT",
+    "CPL.NATIVE_PARITY",
+    "DRC.AUTHORITATIVE",
+    "DRC.CONSTRAINT_FLOOR",
+    "DRC.NO_SUPPRESSED_RULES",
+    "ERC.AUTHORITATIVE",
+    "NET.TOPOLOGY",
+    "PROV.REPORT_FRESHNESS",
+    "ROUTE.GEOMETRY_HYGIENE",
+    "ROUTE.PROVENANCE",
+    "ROUTE.TINY_SEGMENTS",
+    "SIM.SCENARIOS",
+    "SIM.STAGE_COVERAGE",
+    "STACK.GERBER_PARITY",
+    "STACK.NATIVE_VS_MANIFEST",
+    "VIA.ANNULUS_MASK_OVERLAP",
+    "VIA.IN_PAD_CONTACT",
+    "VIA.MASK_CLEARANCE_TARGET",
+)
+
+#: Gates that judge the design itself rather than the fabrication artifacts.
+#: The artifacts are generated FROM the board a search has not finished
+#: choosing, so gates over those would reject every candidate.
+ACCEPTANCE_GATES = (
+    "ERC.AUTHORITATIVE",
+    "DRC.AUTHORITATIVE",
+    "DRC.NO_SUPPRESSED_RULES",
+    "DRC.CONSTRAINT_FLOOR",
+    "NET.TOPOLOGY",
+    "ROUTE.GEOMETRY_HYGIENE",
+    "ROUTE.TINY_SEGMENTS",
+    "ROUTE.PROVENANCE",
+    "CONTRACT.PLACEMENT",
+    "CONTRACT.CONNECTOR",
+    "STACK.NATIVE_VS_MANIFEST",
+    "VIA.ANNULUS_MASK_OVERLAP",
+    "VIA.IN_PAD_CONTACT",
+    "SIM.SCENARIOS",
+    "SIM.STAGE_COVERAGE",
+)
+
+REQUIRED_EVIDENCE = (
+    "evidence/index.json",
+    "fab/selection.json",
+    "generated/requirements.json",
+    "generated/routing.json",
+)
+
+
+def _connector_pitch(reference):
+    """The pitch each connector's own land pattern was drawn on."""
+    pitches = {"J1": 5.08}
+    for channel in range(1, netlist.CHANNEL_COUNT + 1):
+        pitches["J%d" % (channel + 1)] = 2.54
+    pitches["J6"] = 2.54
+    pitches["J7"] = 2.54
+    return pitches[reference]
+
+
+def _connector_id(reference):
+    names = {"J1": "supply_input", "J6": "host_interface_header",
+             "J7": "programming_header"}
+    for channel in range(1, netlist.CHANNEL_COUNT + 1):
+        names["J%d" % (channel + 1)] = "fan_connector_ch%d" % channel
+    return names[reference]
+
+
+def connector_contracts():
+    """One contract per connector, from the netlist's own function map."""
+    pin_net = netlist.pin_to_net()
+    contracts = []
+    for reference in sorted(netlist.CONNECTOR_FUNCTION_NETS,
+                            key=lambda name: int(name[1:])):
+        pins = {}
+        for pin_ref, net in pin_net.items():
+            owner, _, number = pin_ref.partition(".")
+            if owner == reference:
+                pins[number] = net
+        contracts.append({
+            "id": _connector_id(reference),
+            "reference": reference,
+            "required_positions": len(pins),
+            "required_rows": 1,
+            "required_pitch_mm": _connector_pitch(reference),
+            "required_side": "front",
+            "population": {"dnp": False, "exclude_from_bom": False},
+            "pin_map": {number: pins[number]
+                        for number in sorted(pins, key=int)},
+        })
+    return contracts
+
+
+def placement_rules():
+    """Groups the board must contain, counted rather than located.
+
+    Each entry is a family the design source generates as a set; a board that
+    lost one, or grew one, disagrees with the source that made it.
+    """
+    channels = netlist.CHANNEL_COUNT
+    return [
+        {"id": "FAN_CONNECTORS",
+         "reference_regex": r"^J[2-%d]$" % (channels + 1), "count": channels},
+        {"id": "CHANNEL_FUSES",
+         "reference_regex": r"^F[1-%d]$" % channels, "count": channels},
+        {"id": "CHANNEL_SWITCHES",
+         "reference_regex": r"^Q[2-5]$", "count": channels},
+        {"id": "CHANNEL_ENABLES",
+         "reference_regex": r"^Q[6-9]$", "count": channels},
+        {"id": "CONTROL_DRIVERS",
+         "reference_regex": r"^Q1[0-3]$", "count": channels},
+        {"id": "CHANNEL_CLAMPS",
+         "reference_regex": r"^D[2-5]$", "count": channels},
+        {"id": "SENSE_CLAMPS",
+         "reference_regex": r"^D([7-9]|10)$", "count": channels},
+        {"id": "FAN_SIDE_SUPPRESSORS",
+         "reference_regex": r"^D1[1-8]$", "count": 2 * channels},
+        {"id": "LOGIC_SUPPRESSORS",
+         "reference_regex": r"^D(19|2[0-3])$", "count": 5},
+        {"id": "PROBES",
+         "reference_regex": r"^TP([1-9]|1[0-2])$", "count": 12},
+        {"id": "MOUNTING",
+         "reference_regex": r"^H[1-4]$", "count": 4},
+    ]
+
+
+def net_topology_rules():
+    """The one route whose topology is a requirement rather than a result.
+
+    A channel's supply reaches its connector on the front layer and takes no
+    via on the way: a via in that path is a hole in the only conductor the
+    channel's whole current runs through, and the layer it would change to is
+    the one the grounds pour on.
+    """
+    return [{
+        "id": "CHANNEL_SUPPLY_PATHS",
+        "net_regex": r"^FAN\d_12V$",
+        "source_pad_regex": r"^Q[2-5]\.3$",
+        "load_pad_regex": r"^J[2-5]\.%d$" % netlist.FAN_CONNECTOR_PINS["12V"],
+        "max_vias_per_net": 0,
+        "permitted_layers": ["F.Cu"],
+    }]
+
+
+def stackup_expected():
+    """What each copper layer is for.
+
+    The front layer pours the protected rail and the input; the back layer
+    pours the two grounds. The gate names one net per layer, so each entry
+    names the one the layer exists for.
+    """
+    return [{"role": "plane", "plane_net": "V12P"},
+            {"role": "plane", "plane_net": netlist.POWER_GROUND_NET}]
+
+
+def simulation_stages():
+    return {"pre_layout": ["sim/" + name for name in sorted(
+        simulation.documents())]}
+
+
+def document():
+    project = netlist.PROJECT_NAME
+    classes = {entry["name"]: {key: value
+                               for key, value in entry.items()
+                               if key != "name"}
+               for entry in build.NET_CLASSES}
+    return {
+        "schema_version": 2,
+        "board_id": project,
+        "constraint_version": "layout-stage-2026-09-02",
+        "project_root": "..",
+        "tools": {"kicad_cli": "kicad-cli"},
+        "sources": {
+            "schematic": project + ".kicad_sch",
+            "project": project + ".kicad_pro",
+            "pcb": project + ".kicad_pcb",
+        },
+        "board_origin_mm": [0.0, 0.0],
+        "documentation_globs": ["BRIEF.md"],
+        "checks": {
+            "erc": {"extra_flags": []},
+            "drc": {
+                "extra_flags": [],
+                "forbidden_severities": ["ignore"],
+                "permitted_ignored_rules": [],
+                "constraint_floor": {
+                    "rules": dict(build.DESIGN_RULES),
+                    "net_classes": classes,
+                },
+            },
+        },
+        "waivers": [],
+        "geometry_profile": {
+            "version": "geom-1",
+            "tolerances": {
+                "waiver_location_mm": {"value": 0.001, "units": "mm"},
+                "polygon_chord_error_mm": {"value": 0.001, "units": "mm"},
+                "contact_mm": {"value": 1e-06, "units": "mm"},
+                "coordinate_match_mm": {"value": 0.002, "units": "mm"},
+                "rotation_match_deg": {"value": 0.1, "units": "deg"},
+                "dimension_match_mm": {"value": 0.002, "units": "mm"},
+                "clearance_match_mm": {"value": 0.01, "units": "mm"},
+                "layer_symmetric_difference_mm2": {"value": 0.05,
+                                                   "units": "mm2"},
+            },
+        },
+        "stackup": {"expected": stackup_expected()},
+        "placement_rules": placement_rules(),
+        "net_topology": {"rules": net_topology_rules()},
+        "routing": {
+            "min_segment_mm": 0.1,
+            "short_segment_justification": {"allow_pad_or_via_entry": True},
+            "hygiene": {"forbid_duplicate_geometry": True,
+                        "forbid_net_crossings": True,
+                        "forbid_dangling": True},
+            "provenance": "generated/routing.json",
+            "acceptance_gates": list(ACCEPTANCE_GATES),
+        },
+        "via_mask": {
+            "pad_contact": {"populated_pad_attributes": ["SMD"],
+                            "require_paste": True},
+            "metric": "annulus_to_opening_mm",
+            "contact_semantics":
+                "annulus_contacts counts zero-distance tangency as contact; "
+                "annulus_strict_overlaps counts positive shared area only",
+            "mask_dam_rule": "contact",
+            "design_target_mm": 0.15,
+        },
+        "artifacts": {
+            "gerber_dir": "generated/release/gerbers",
+            "bom": "generated/release/bom.csv",
+            "cpl": "generated/release/cpl.csv",
+            "fabrication_manifest": "generated/release/fabrication.json",
+            "validation_report": "generated/release/validation.json",
+            "position_tolerance_mm": 0.01,
+            "cpl_fields": {"designator": "Ref", "x": "PosX", "y": "PosY",
+                           "side": "Side", "rotation": "Rot"},
+            "cpl_origin": {"frame": "absolute page origin",
+                           "offset_mm": [0.0, 0.0]},
+            "gerber_export_flags": [
+                "--layers",
+                "F.Cu,B.Cu,F.Paste,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask,"
+                "Edge.Cuts",
+                "--no-protel-ext", "--use-drill-file-origin",
+                "--subtract-soldermask"],
+            "reports_dir": "generated/release/reports",
+        },
+        "archive": {
+            "zip": "generated/release/%s-fabrication.zip" % project,
+            "allow": [
+                {"file_function": "Copper,L1,Top", "require_payload": True,
+                 "min_count": 1},
+                {"file_function": "Copper,L2,Bot", "require_payload": True,
+                 "min_count": 1},
+                {"file_function": "Soldermask,Top", "require_payload": True,
+                 "min_count": 1},
+                {"file_function": "Soldermask,Bot", "require_payload": True,
+                 "min_count": 1},
+                {"file_function": "Legend,Top", "require_payload": True,
+                 "min_count": 1},
+                {"file_function": "Legend,Bot", "require_payload": False,
+                 "min_count": 1},
+                {"file_function": "Paste,Top", "require_payload": True,
+                 "min_count": 1},
+                {"file_function": "Profile,NP", "require_payload": True,
+                 "min_count": 1},
+                {"file_function": "Drill/plated", "require_payload": True,
+                 "min_count": 1},
+                {"file_function": "Drill/nonplated", "require_payload": True,
+                 "min_count": 1},
+                {"file_function": "JobFile", "require_payload": True,
+                 "min_count": 1},
+            ],
+        },
+        "assembly": {
+            "schematic_fields": ["LCSC", "MPN", "Manufacturer"],
+            "required_part_fields": ["LCSC"],
+            "bom_fields": {"designators": "Designator", "value": "Comment",
+                           "footprint": "Footprint", "quantity": "Quantity",
+                           "LCSC": "LCSC Part #"},
+            "schematic_export": {
+                "fields": ["Reference", "Value", "Footprint", "${DNP}",
+                           "${EXCLUDE_FROM_BOM}", "LCSC", "MPN",
+                           "Manufacturer"],
+                "labels": ["Reference", "Value", "Footprint", "DNP",
+                           "ExcludeFromBOM", "LCSC", "MPN", "Manufacturer"],
+                "flags": [],
+                "reference_label": "Reference",
+                "value_label": "Value",
+                "footprint_label": "Footprint",
+                "dnp_label": "DNP",
+                "exclude_label": "ExcludeFromBOM",
+                "true_tokens": ["1", "true", "yes", "x", "dnp"],
+            },
+            "compared_part_fields": ["LCSC", "MPN", "Manufacturer"],
+        },
+        "release_generation": {
+            "lock_file_globs": ["*.lck", "~*.lck", ".#*", "*-lock",
+                                "*.kicad_prl-lock"],
+            "erc": {"output": "erc.json"},
+            "drc": {"output": "drc.json"},
+            "drill": {"flags": ["--format", "excellon",
+                                "--excellon-separate-th", "--drill-origin",
+                                "plot"]},
+            "bom": {
+                "output": "bom.csv",
+                "fields": ["${QUANTITY}", "Reference", "Value", "Footprint",
+                           "LCSC"],
+                "labels": ["Quantity", "Designator", "Comment", "Footprint",
+                           "LCSC Part #"],
+                "group_by": ["Value", "Footprint", "LCSC"],
+                "flags": ["--exclude-dnp", "--ref-range-delimiter", ""],
+                "field_map": {"designators": "Designator", "value": "Comment",
+                              "footprint": "Footprint",
+                              "quantity": "Quantity",
+                              "LCSC": "LCSC Part #"},
+            },
+            "cpl": {
+                "output": "cpl.csv",
+                "flags": ["--format", "csv", "--units", "mm", "--side",
+                          "both", "--exclude-dnp"],
+                "field_map": {"designator": "Ref", "x": "PosX", "y": "PosY",
+                              "side": "Side", "rotation": "Rot"},
+                "origin": {"frame": "absolute page origin",
+                           "offset_mm": [0.0, 0.0]},
+            },
+            "archive": {"zip": "%s-fabrication.zip" % project},
+        },
+        "reports": {
+            "files": ["generated/release/reports/erc.json",
+                      "generated/release/reports/drc.json"],
+            "source_field": "source",
+            "date_field": "date",
+            "require_source_hash": True,
+            "tolerance_seconds": 0,
+            "source_closure": ["*.kicad_sch", "*.kicad_pcb", "*.kicad_pro",
+                               "*.kicad_dru", "constraints/*.json",
+                               "sim/*.json", "fab/*.json",
+                               "components/*.json", "evidence/index.json"],
+            "source_hash_field": "source_sha256",
+            "closure_field": "source_closure_sha256",
+        },
+        "fixture": {"attributes_file": ".gitattributes"},
+        "release_profile": {
+            "id": RELEASE_PROFILE_ID,
+            "mandatory_gates": list(MANDATORY_GATES),
+            "required_evidence": list(REQUIRED_EVIDENCE),
+        },
+        "simulation": {
+            "stages": simulation_stages(),
+            "required_stages": ["pre_layout"],
+        },
+        "connector_gender_tokens": {
+            "receptacle": ["receptacle", "socket", "female"],
+            "plug": ["plug", "header", "male"],
+        },
+        "connector_contracts": connector_contracts(),
+    }
+
+
+def write():
+    os.makedirs(os.path.dirname(MANIFEST_PATH), exist_ok=True)
+    with open(MANIFEST_PATH, "w", encoding="utf-8", newline="\n") as handle:
+        json.dump(document(), handle, indent=2, sort_keys=True)
+        handle.write("\n")
+    return MANIFEST_PATH
+
+
+if __name__ == "__main__":
+    sys.stdout.write(write() + "\n")
