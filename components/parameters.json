@@ -1,0 +1,1580 @@
+{
+  "parts": {
+    "0603WAF0000T5E": {
+      "digital_inputs": {},
+      "digital_outputs": {},
+      "ground_pins": [],
+      "resistor": {
+        "power_max_w": {
+          "basis": "direct",
+          "document": "res_0603_zero_uniroyal",
+          "value": 0.1
+        },
+        "resistance_max_ohm": {
+          "basis": "assumed",
+          "note": "the series specification states no jumper resistance; 50 mohm is the usual 0603 jumper figure and is used as a bound",
+          "value": 0.05
+        },
+        "working_voltage_max_v": {
+          "basis": "direct",
+          "document": "res_0603_zero_uniroyal",
+          "value": 75.0
+        }
+      },
+      "supply": {},
+      "supply_current_max_a": {
+        "basis": "direct",
+        "value": 0.0
+      },
+      "supply_pins": []
+    },
+    "0603WAF1000T5E": {
+      "digital_inputs": {},
+      "digital_outputs": {},
+      "ground_pins": [],
+      "resistor": {
+        "power_max_w": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 0.1
+        },
+        "tolerance": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 0.01
+        },
+        "working_voltage_max_v": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 75.0
+        }
+      },
+      "supply": {},
+      "supply_current_max_a": {
+        "basis": "direct",
+        "value": 0.0
+      },
+      "supply_pins": []
+    },
+    "0603WAF1002T5E": {
+      "digital_inputs": {},
+      "digital_outputs": {},
+      "ground_pins": [],
+      "resistor": {
+        "power_max_w": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 0.1
+        },
+        "tolerance": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 0.01
+        },
+        "working_voltage_max_v": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 75.0
+        }
+      },
+      "supply": {},
+      "supply_current_max_a": {
+        "basis": "direct",
+        "value": 0.0
+      },
+      "supply_pins": []
+    },
+    "0603WAF1003T5E": {
+      "digital_inputs": {},
+      "digital_outputs": {},
+      "ground_pins": [],
+      "resistor": {
+        "power_max_w": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 0.1
+        },
+        "tolerance": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 0.01
+        },
+        "working_voltage_max_v": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 75.0
+        }
+      },
+      "supply": {},
+      "supply_current_max_a": {
+        "basis": "direct",
+        "value": 0.0
+      },
+      "supply_pins": []
+    },
+    "0603WAF1501T5E": {
+      "digital_inputs": {},
+      "digital_outputs": {},
+      "ground_pins": [],
+      "resistor": {
+        "power_max_w": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 0.1
+        },
+        "tolerance": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 0.01
+        },
+        "working_voltage_max_v": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 75.0
+        }
+      },
+      "supply": {},
+      "supply_current_max_a": {
+        "basis": "direct",
+        "value": 0.0
+      },
+      "supply_pins": []
+    },
+    "0603WAF2201T5E": {
+      "digital_inputs": {},
+      "digital_outputs": {},
+      "ground_pins": [],
+      "resistor": {
+        "power_max_w": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 0.1
+        },
+        "tolerance": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 0.01
+        },
+        "working_voltage_max_v": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 75.0
+        }
+      },
+      "supply": {},
+      "supply_current_max_a": {
+        "basis": "direct",
+        "value": 0.0
+      },
+      "supply_pins": []
+    },
+    "0603WAF3302T5E": {
+      "digital_inputs": {},
+      "digital_outputs": {},
+      "ground_pins": [],
+      "resistor": {
+        "power_max_w": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 0.1
+        },
+        "tolerance": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 0.01
+        },
+        "working_voltage_max_v": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 75.0
+        }
+      },
+      "supply": {},
+      "supply_current_max_a": {
+        "basis": "direct",
+        "value": 0.0
+      },
+      "supply_pins": []
+    },
+    "0603WAF4700T5E": {
+      "digital_inputs": {},
+      "digital_outputs": {},
+      "ground_pins": [],
+      "resistor": {
+        "power_max_w": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 0.1
+        },
+        "tolerance": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 0.01
+        },
+        "working_voltage_max_v": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 75.0
+        }
+      },
+      "supply": {},
+      "supply_current_max_a": {
+        "basis": "direct",
+        "value": 0.0
+      },
+      "supply_pins": []
+    },
+    "0603WAF4701T5E": {
+      "digital_inputs": {},
+      "digital_outputs": {},
+      "ground_pins": [],
+      "resistor": {
+        "power_max_w": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 0.1
+        },
+        "tolerance": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 0.01
+        },
+        "working_voltage_max_v": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 75.0
+        }
+      },
+      "supply": {},
+      "supply_current_max_a": {
+        "basis": "direct",
+        "value": 0.0
+      },
+      "supply_pins": []
+    },
+    "0603WAF470JT5E": {
+      "digital_inputs": {},
+      "digital_outputs": {},
+      "ground_pins": [],
+      "resistor": {
+        "power_max_w": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 0.1
+        },
+        "tolerance": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 0.01
+        },
+        "working_voltage_max_v": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 75.0
+        }
+      },
+      "supply": {},
+      "supply_current_max_a": {
+        "basis": "direct",
+        "value": 0.0
+      },
+      "supply_pins": []
+    },
+    "AO3400A": {
+      "digital_inputs": {},
+      "digital_outputs": {},
+      "fet": {
+        "body_diode_forward_max_v": {
+          "at_current_a": 1.0,
+          "basis": "direct",
+          "document": "ao3400a_aos",
+          "value": 1.0
+        },
+        "channel": {
+          "basis": "direct",
+          "document": "ao3400a_aos",
+          "value": "n"
+        },
+        "drain_leakage_max_a": {
+          "at_vds_v": 30.0,
+          "basis": "direct",
+          "document": "ao3400a_aos",
+          "value": 1e-06
+        },
+        "id_max_a_25c": {
+          "basis": "direct",
+          "document": "ao3400a_aos",
+          "value": 5.7
+        },
+        "id_max_a_70c": {
+          "basis": "direct",
+          "document": "ao3400a_aos",
+          "value": 4.7
+        },
+        "id_pulsed_max_a": {
+          "basis": "direct",
+          "document": "ao3400a_aos",
+          "value": 30.0
+        },
+        "input_capacitance_f": {
+          "basis": "direct",
+          "document": "ao3400a_aos",
+          "value": 6.3e-10
+        },
+        "power_max_w_25c": {
+          "basis": "direct",
+          "document": "ao3400a_aos",
+          "value": 1.4
+        },
+        "power_max_w_70c": {
+          "basis": "direct",
+          "document": "ao3400a_aos",
+          "value": 0.9
+        },
+        "rds_on_ohm": {
+          "10": {
+            "basis": "direct",
+            "document": "ao3400a_aos",
+            "value": 0.0265
+          },
+          "2.5": {
+            "basis": "direct",
+            "document": "ao3400a_aos",
+            "value": 0.048
+          },
+          "4.5": {
+            "basis": "direct",
+            "document": "ao3400a_aos",
+            "value": 0.032
+          }
+        },
+        "rthja_max_c_per_w": {
+          "basis": "direct",
+          "document": "ao3400a_aos",
+          "value": 125.0
+        },
+        "vds_max_v": {
+          "basis": "direct",
+          "document": "ao3400a_aos",
+          "value": 30.0
+        },
+        "vgs_max_v": {
+          "basis": "direct",
+          "document": "ao3400a_aos",
+          "value": 12.0
+        },
+        "vgs_threshold_max_v": {
+          "basis": "direct",
+          "document": "ao3400a_aos",
+          "value": 1.45
+        },
+        "vgs_threshold_min_v": {
+          "basis": "direct",
+          "document": "ao3400a_aos",
+          "value": 0.65
+        }
+      },
+      "ground_pins": [],
+      "land_pattern": {
+        "document": "ao3400a_aos",
+        "pad_count": 3,
+        "pin_map": {
+          "1": "G",
+          "2": "S",
+          "3": "D"
+        }
+      },
+      "supply": {},
+      "supply_current_max_a": {
+        "basis": "direct",
+        "value": 0.0
+      },
+      "supply_pins": []
+    },
+    "AO3401A": {
+      "digital_inputs": {},
+      "digital_outputs": {},
+      "fet": {
+        "channel": {
+          "basis": "direct",
+          "document": "ao3401a_aos",
+          "value": "p"
+        },
+        "drain_leakage_max_a": {
+          "at_vds_v": -30.0,
+          "basis": "direct",
+          "document": "ao3401a_aos",
+          "value": -0.001
+        },
+        "id_max_a_25c": {
+          "basis": "direct",
+          "document": "ao3401a_aos",
+          "value": -4.0
+        },
+        "id_max_a_70c": {
+          "basis": "direct",
+          "document": "ao3401a_aos",
+          "value": -3.2
+        },
+        "id_pulsed_max_a": {
+          "basis": "direct",
+          "document": "ao3401a_aos",
+          "value": -27.0
+        },
+        "power_max_w_25c": {
+          "basis": "direct",
+          "document": "ao3401a_aos",
+          "value": 1.4
+        },
+        "power_max_w_70c": {
+          "basis": "direct",
+          "document": "ao3401a_aos",
+          "value": 0.9
+        },
+        "rds_on_ohm": {
+          "-10": {
+            "basis": "direct",
+            "document": "ao3401a_aos",
+            "value": 0.05
+          },
+          "-2.5": {
+            "basis": "direct",
+            "document": "ao3401a_aos",
+            "value": 0.085
+          },
+          "-4.5": {
+            "basis": "direct",
+            "document": "ao3401a_aos",
+            "value": 0.06
+          }
+        },
+        "rthja_max_c_per_w": {
+          "basis": "direct",
+          "document": "ao3401a_aos",
+          "value": 125.0
+        },
+        "vds_max_v": {
+          "basis": "direct",
+          "document": "ao3401a_aos",
+          "value": -30.0
+        },
+        "vgs_max_v": {
+          "basis": "direct",
+          "document": "ao3401a_aos",
+          "value": 12.0
+        },
+        "vgs_threshold_max_v": {
+          "basis": "direct",
+          "document": "ao3401a_aos",
+          "value": -1.3
+        },
+        "vgs_threshold_min_v": {
+          "basis": "direct",
+          "document": "ao3401a_aos",
+          "value": -0.5
+        }
+      },
+      "ground_pins": [],
+      "land_pattern": {
+        "document": "ao3401a_aos",
+        "pad_count": 3,
+        "pin_map": {
+          "1": "G",
+          "2": "S",
+          "3": "D"
+        }
+      },
+      "supply": {},
+      "supply_current_max_a": {
+        "basis": "direct",
+        "value": 0.0
+      },
+      "supply_pins": []
+    },
+    "AO4407A": {
+      "digital_inputs": {},
+      "digital_outputs": {},
+      "fet": {
+        "body_diode_forward_max_v": {
+          "at_current_a": 1.0,
+          "basis": "direct",
+          "document": "ao4407a_aos",
+          "value": -1.0
+        },
+        "channel": {
+          "basis": "direct",
+          "document": "ao4407a_aos",
+          "value": "p"
+        },
+        "drain_leakage_max_a": {
+          "at_vds_v": -30.0,
+          "basis": "direct",
+          "document": "ao4407a_aos",
+          "value": -1e-05
+        },
+        "id_max_a_25c": {
+          "basis": "direct",
+          "document": "ao4407a_aos",
+          "value": -12.0
+        },
+        "id_max_a_70c": {
+          "basis": "direct",
+          "document": "ao4407a_aos",
+          "value": -10.0
+        },
+        "id_pulsed_max_a": {
+          "basis": "direct",
+          "document": "ao4407a_aos",
+          "value": -60.0
+        },
+        "input_capacitance_f": {
+          "basis": "direct",
+          "document": "ao4407a_aos",
+          "value": 2.6e-09
+        },
+        "power_max_w_25c": {
+          "basis": "direct",
+          "document": "ao4407a_aos",
+          "value": 3.1
+        },
+        "power_max_w_70c": {
+          "basis": "direct",
+          "document": "ao4407a_aos",
+          "value": 2.0
+        },
+        "rds_on_ohm": {
+          "-10": {
+            "basis": "direct",
+            "document": "ao4407a_aos",
+            "value": 0.013
+          },
+          "-5": {
+            "basis": "direct",
+            "document": "ao4407a_aos",
+            "value": 0.038
+          }
+        },
+        "rthja_max_c_per_w": {
+          "basis": "direct",
+          "document": "ao4407a_aos",
+          "value": 75.0
+        },
+        "vds_max_v": {
+          "basis": "direct",
+          "document": "ao4407a_aos",
+          "value": -30.0
+        },
+        "vgs_max_v": {
+          "basis": "direct",
+          "document": "ao4407a_aos",
+          "value": 25.0
+        },
+        "vgs_threshold_max_v": {
+          "basis": "direct",
+          "document": "ao4407a_aos",
+          "value": -3.0
+        },
+        "vgs_threshold_min_v": {
+          "basis": "direct",
+          "document": "ao4407a_aos",
+          "value": -1.7
+        }
+      },
+      "ground_pins": [],
+      "land_pattern": {
+        "document": "ao4407a_aos",
+        "pad_count": 8,
+        "pin_map": {
+          "1": "S",
+          "2": "S",
+          "3": "S",
+          "4": "G",
+          "5": "D",
+          "6": "D",
+          "7": "D",
+          "8": "D"
+        }
+      },
+      "supply": {},
+      "supply_current_max_a": {
+        "basis": "direct",
+        "value": 0.0
+      },
+      "supply_pins": []
+    },
+    "B5819W SL": {
+      "digital_inputs": {},
+      "digital_outputs": {},
+      "diode": {
+        "average_forward_current_a": {
+          "basis": "direct",
+          "document": "b5819w_jscj",
+          "value": 1.0
+        },
+        "capacitance_f": {
+          "at_voltage_v": 4.0,
+          "basis": "direct",
+          "document": "b5819w_jscj",
+          "value": 1.2e-10
+        },
+        "forward_voltage_max_v": {
+          "1": {
+            "basis": "direct",
+            "document": "b5819w_jscj",
+            "value": 0.6
+          },
+          "3": {
+            "basis": "direct",
+            "document": "b5819w_jscj",
+            "value": 0.9
+          }
+        },
+        "peak_forward_current_a": {
+          "basis": "direct",
+          "document": "b5819w_jscj",
+          "value": 1.5
+        },
+        "power_max_w": {
+          "basis": "direct",
+          "document": "b5819w_jscj",
+          "value": 0.5
+        },
+        "reverse_leakage_max_a": {
+          "at_voltage_v": 40.0,
+          "basis": "direct",
+          "document": "b5819w_jscj",
+          "value": 0.001
+        },
+        "reverse_voltage_max_v": {
+          "basis": "direct",
+          "document": "b5819w_jscj",
+          "value": 40.0
+        },
+        "rthja_c_per_w": {
+          "basis": "direct",
+          "document": "b5819w_jscj",
+          "value": 200.0
+        },
+        "surge_current_8ms_a": {
+          "basis": "direct",
+          "document": "b5819w_jscj",
+          "value": 9.0
+        },
+        "tj_max_c": {
+          "basis": "direct",
+          "document": "b5819w_jscj",
+          "value": 125.0
+        }
+      },
+      "ground_pins": [],
+      "land_pattern": {
+        "document": "b5819w_jscj",
+        "pad_count": 2,
+        "pin_map": {
+          "1": "K",
+          "2": "A"
+        }
+      },
+      "supply": {},
+      "supply_current_max_a": {
+        "basis": "direct",
+        "value": 0.0
+      },
+      "supply_pins": []
+    },
+    "CC0603KRX7R9BB102": {
+      "capacitor": {
+        "dielectric": {
+          "basis": "direct",
+          "document": "mlcc_yageo_cc0603",
+          "value": "X7R"
+        },
+        "rated_voltage_v": {
+          "basis": "direct",
+          "document": "mlcc_yageo_cc0603",
+          "value": 50.0
+        },
+        "tolerance": {
+          "basis": "direct",
+          "document": "mlcc_yageo_cc0603",
+          "value": 0.1
+        }
+      },
+      "digital_inputs": {},
+      "digital_outputs": {},
+      "ground_pins": [],
+      "supply": {},
+      "supply_current_max_a": {
+        "basis": "direct",
+        "value": 0.0
+      },
+      "supply_pins": []
+    },
+    "CC0603KRX7R9BB104": {
+      "capacitor": {
+        "dielectric": {
+          "basis": "direct",
+          "document": "mlcc_yageo_cc0603",
+          "value": "X7R"
+        },
+        "rated_voltage_v": {
+          "basis": "direct",
+          "document": "mlcc_yageo_cc0603",
+          "value": 50.0
+        },
+        "tolerance": {
+          "basis": "direct",
+          "document": "mlcc_yageo_cc0603",
+          "value": 0.1
+        }
+      },
+      "digital_inputs": {},
+      "digital_outputs": {},
+      "ground_pins": [],
+      "supply": {},
+      "supply_current_max_a": {
+        "basis": "direct",
+        "value": 0.0
+      },
+      "supply_pins": []
+    },
+    "CL21A106KAYNNNE": {
+      "capacitor": {
+        "dielectric": {
+          "basis": "direct",
+          "document": "mlcc_10uf_samsung",
+          "value": "X5R"
+        },
+        "rated_voltage_v": {
+          "basis": "direct",
+          "document": "mlcc_10uf_samsung",
+          "value": 25.0
+        },
+        "tolerance": {
+          "basis": "direct",
+          "document": "mlcc_10uf_samsung",
+          "value": 0.1
+        }
+      },
+      "digital_inputs": {},
+      "digital_outputs": {},
+      "ground_pins": [],
+      "supply": {},
+      "supply_current_max_a": {
+        "basis": "direct",
+        "value": 0.0
+      },
+      "supply_pins": []
+    },
+    "HT75R33-1A": {
+      "digital_inputs": {},
+      "digital_outputs": {},
+      "ground_pins": [
+        "1"
+      ],
+      "land_pattern": {
+        "document": "ht75rxx_holtek",
+        "pad_count": 3,
+        "pin_map": {
+          "1": "GND",
+          "2": "VIN",
+          "3": "VOUT"
+        }
+      },
+      "regulator": {
+        "dropout_bound_v": {
+          "at_current_a": 0.02,
+          "basis": "assumed",
+          "document": "ht75rxx_holtek",
+          "note": "the datasheet states dropout only at 1 mA; this is a conservative bound used for the hold-up claim, not a datasheet limit",
+          "value": 1.0
+        },
+        "dropout_max_v": {
+          "at_current_a": 0.001,
+          "basis": "direct",
+          "document": "ht75rxx_holtek",
+          "value": 0.03
+        },
+        "input_voltage_absolute_max_v": {
+          "basis": "direct",
+          "document": "ht75rxx_holtek",
+          "value": 33.0
+        },
+        "input_voltage_max_v": {
+          "basis": "direct",
+          "condition": "recommended operating",
+          "document": "ht75rxx_holtek",
+          "value": 30.0
+        },
+        "line_regulation_max_per_v": {
+          "basis": "direct",
+          "document": "ht75rxx_holtek",
+          "value": 0.002
+        },
+        "load_regulation_max_v": {
+          "basis": "direct",
+          "condition": "1 to 50 mA",
+          "document": "ht75rxx_holtek",
+          "value": 0.045
+        },
+        "output_current_max_a": {
+          "basis": "direct",
+          "document": "ht75rxx_holtek",
+          "value": 0.15
+        },
+        "output_tolerance": {
+          "basis": "direct",
+          "condition": "IOUT = 10 mA",
+          "document": "ht75rxx_holtek",
+          "value": 0.01
+        },
+        "output_voltage_v": {
+          "basis": "direct",
+          "document": "ht75rxx_holtek",
+          "value": 3.3
+        }
+      },
+      "supply": {},
+      "supply_current_max_a": {
+        "basis": "direct",
+        "condition": "IOUT = 0 mA",
+        "document": "ht75rxx_holtek",
+        "value": 1.5e-06
+      },
+      "supply_pins": [
+        "2"
+      ],
+      "thermal": {
+        "power_max_w": {
+          "basis": "direct",
+          "condition": "TA 25 C",
+          "document": "ht75rxx_holtek",
+          "value": 0.5
+        },
+        "rthja_c_per_w": {
+          "basis": "direct",
+          "document": "ht75rxx_holtek",
+          "package": "SOT-89",
+          "value": 200.0
+        },
+        "ta_max_c": {
+          "basis": "direct",
+          "document": "ht75rxx_holtek",
+          "value": 105.0
+        },
+        "ta_min_c": {
+          "basis": "direct",
+          "document": "ht75rxx_holtek",
+          "value": -40.0
+        },
+        "tj_max_c": {
+          "basis": "direct",
+          "document": "ht75rxx_holtek",
+          "value": 150.0
+        }
+      }
+    },
+    "JK-MSMD200-24V": {
+      "digital_inputs": {},
+      "digital_outputs": {},
+      "ground_pins": [],
+      "land_pattern": {
+        "document": "pptc_jk_msmd_series_jinrui",
+        "pad_count": 2,
+        "pad_gap_mm": 3.2,
+        "pad_size_mm": [
+          1.78,
+          3.2
+        ]
+      },
+      "resettable_fuse": {
+        "fault_current_max_a": {
+          "basis": "direct",
+          "document": "pptc_jk_msmd200_jinrui",
+          "value": 100.0
+        },
+        "hold_current_a": {
+          "-20": {
+            "basis": "direct",
+            "document": "pptc_jk_msmd_series_jinrui",
+            "value": 2.61
+          },
+          "-40": {
+            "basis": "direct",
+            "document": "pptc_jk_msmd_series_jinrui",
+            "value": 2.89
+          },
+          "0": {
+            "basis": "direct",
+            "document": "pptc_jk_msmd_series_jinrui",
+            "value": 2.3
+          },
+          "25": {
+            "basis": "direct",
+            "document": "pptc_jk_msmd_series_jinrui",
+            "value": 2.0
+          },
+          "40": {
+            "basis": "direct",
+            "document": "pptc_jk_msmd_series_jinrui",
+            "value": 1.75
+          },
+          "50": {
+            "basis": "direct",
+            "document": "pptc_jk_msmd_series_jinrui",
+            "value": 1.66
+          },
+          "60": {
+            "basis": "direct",
+            "document": "pptc_jk_msmd_series_jinrui",
+            "value": 1.45
+          },
+          "70": {
+            "basis": "direct",
+            "document": "pptc_jk_msmd_series_jinrui",
+            "value": 1.39
+          },
+          "85": {
+            "basis": "direct",
+            "document": "pptc_jk_msmd_series_jinrui",
+            "value": 1.19
+          }
+        },
+        "hold_current_derating_note": {
+          "basis": "assumed",
+          "document": "pptc_jk_msmd_series_jinrui",
+          "value": "the series derating chart tabulates the JK-mSMD200 element; the -24 variant differs only in voltage rating and shares the element's hold, trip and resistance figures"
+        },
+        "resistance_max_ohm": {
+          "basis": "direct",
+          "condition": "one hour after reflow",
+          "document": "pptc_jk_msmd200_jinrui",
+          "value": 0.12
+        },
+        "resistance_min_ohm": {
+          "basis": "direct",
+          "document": "pptc_jk_msmd200_jinrui",
+          "value": 0.02
+        },
+        "ta_max_c": {
+          "basis": "direct",
+          "document": "pptc_jk_msmd200_jinrui",
+          "value": 85.0
+        },
+        "time_to_trip_max_s": {
+          "at_current_a": 8.0,
+          "basis": "direct",
+          "document": "pptc_jk_msmd200_jinrui",
+          "value": 2.0
+        },
+        "trip_current_a": {
+          "basis": "direct",
+          "condition": "25 C still air",
+          "document": "pptc_jk_msmd200_jinrui",
+          "value": 4.0
+        },
+        "tripped_power_w": {
+          "basis": "direct",
+          "document": "pptc_jk_msmd200_jinrui",
+          "value": 0.8
+        },
+        "voltage_max_v": {
+          "basis": "direct",
+          "document": "pptc_jk_msmd200_jinrui",
+          "value": 24.0
+        }
+      },
+      "supply": {},
+      "supply_current_max_a": {
+        "basis": "direct",
+        "value": 0.0
+      },
+      "supply_pins": []
+    },
+    "KF128-5.08-2P-AA": {
+      "contact_current_max_a": {
+        "basis": "direct",
+        "document": "kf128_cixikefa",
+        "standard": "UL/CUL",
+        "value": 10.0
+      },
+      "contact_voltage_max_v": {
+        "basis": "direct",
+        "document": "kf128_cixikefa",
+        "standard": "UL/CUL",
+        "value": 300.0
+      },
+      "dielectric_withstand_vac": {
+        "basis": "direct",
+        "document": "kf128_cixikefa",
+        "value": 1600.0
+      },
+      "digital_inputs": {},
+      "digital_outputs": {},
+      "ground_pins": [],
+      "land_pattern": {
+        "document": "kf128_cixikefa",
+        "hole_diameter_mm": 1.4,
+        "pad_count": 2,
+        "pin_size_mm": [
+          0.8,
+          0.9
+        ],
+        "pitch_mm": 5.08
+      },
+      "supply": {},
+      "supply_current_max_a": {
+        "basis": "direct",
+        "value": 0.0
+      },
+      "supply_pins": []
+    },
+    "KF2510-4AGW-GW": {
+      "contact_current_max_a": {
+        "basis": "direct",
+        "document": "fanheader_2510_cax",
+        "value": 3.0
+      },
+      "contact_resistance_ohm": {
+        "basis": "direct",
+        "document": "fanheader_2510_cax",
+        "value": 0.02
+      },
+      "contact_voltage_max_v": {
+        "basis": "direct",
+        "document": "fanheader_2510_cax",
+        "value": 250.0
+      },
+      "dielectric_withstand_vac": {
+        "basis": "direct",
+        "document": "fanheader_2510_cax",
+        "value": 1000.0
+      },
+      "digital_inputs": {},
+      "digital_outputs": {},
+      "ground_pins": [],
+      "insulation_resistance_ohm": {
+        "basis": "direct",
+        "document": "fanheader_2510_cax",
+        "value": 1000000000.0
+      },
+      "land_pattern": {
+        "board_thickness_mm": 1.6,
+        "document": "fanheader_2510_cax",
+        "pad_count": 4,
+        "pin_square_mm": 0.62,
+        "pitch_mm": 2.54
+      },
+      "supply": {},
+      "supply_current_max_a": {
+        "basis": "direct",
+        "value": 0.0
+      },
+      "supply_pins": [],
+      "ta_max_c": {
+        "basis": "direct",
+        "document": "fanheader_2510_cax",
+        "value": 85.0
+      },
+      "ta_min_c": {
+        "basis": "direct",
+        "document": "fanheader_2510_cax",
+        "value": -25.0
+      }
+    },
+    "KH-2.54PH180-1X3P-L11.5": {
+      "contact_current_max_a": {
+        "basis": "direct",
+        "document": "header1x3_kinghelm",
+        "value": 3.0
+      },
+      "contact_resistance_ohm": {
+        "basis": "direct",
+        "document": "header1x3_kinghelm",
+        "value": 0.02
+      },
+      "dielectric_withstand_vac": {
+        "basis": "direct",
+        "document": "header1x3_kinghelm",
+        "value": 1000.0
+      },
+      "digital_inputs": {},
+      "digital_outputs": {},
+      "ground_pins": [],
+      "land_pattern": {
+        "document": "header1x3_kinghelm",
+        "pin_square_mm": 0.64,
+        "pitch_mm": 2.54,
+        "recommended_hole_diameter_mm": 1.02
+      },
+      "supply": {},
+      "supply_current_max_a": {
+        "basis": "direct",
+        "value": 0.0
+      },
+      "supply_pins": []
+    },
+    "KH-2.54PH180-1X5P-L11.5": {
+      "contact_current_max_a": {
+        "basis": "direct",
+        "document": "header1x5_kinghelm",
+        "value": 3.0
+      },
+      "contact_resistance_ohm": {
+        "basis": "direct",
+        "document": "header1x5_kinghelm",
+        "value": 0.02
+      },
+      "dielectric_withstand_vac": {
+        "basis": "direct",
+        "document": "header1x5_kinghelm",
+        "value": 1000.0
+      },
+      "digital_inputs": {},
+      "digital_outputs": {},
+      "ground_pins": [],
+      "land_pattern": {
+        "document": "header1x5_kinghelm",
+        "pin_square_mm": 0.64,
+        "pitch_mm": 2.54,
+        "recommended_hole_diameter_mm": 1.02
+      },
+      "supply": {},
+      "supply_current_max_a": {
+        "basis": "direct",
+        "value": 0.0
+      },
+      "supply_pins": []
+    },
+    "KT-0603R": {
+      "digital_inputs": {},
+      "digital_outputs": {},
+      "ground_pins": [],
+      "land_pattern": {
+        "document": "kt0603r_kento",
+        "pad_count": 2,
+        "pin_map": {
+          "1": "K",
+          "2": "A"
+        }
+      },
+      "led": {
+        "forward_current_max_a": {
+          "basis": "direct",
+          "document": "kt0603r_kento",
+          "value": 0.025
+        },
+        "forward_voltage_max_v": {
+          "at_current_a": 0.02,
+          "basis": "direct",
+          "document": "kt0603r_kento",
+          "value": 2.4
+        },
+        "forward_voltage_min_v": {
+          "at_current_a": 0.02,
+          "basis": "direct",
+          "document": "kt0603r_kento",
+          "value": 1.8
+        },
+        "peak_forward_current_a": {
+          "basis": "direct",
+          "document": "kt0603r_kento",
+          "value": 0.06
+        },
+        "power_max_w": {
+          "basis": "direct",
+          "document": "kt0603r_kento",
+          "value": 0.04
+        },
+        "reverse_voltage_max_v": {
+          "basis": "direct",
+          "document": "kt0603r_kento",
+          "value": 5.0
+        }
+      },
+      "supply": {},
+      "supply_current_max_a": {
+        "basis": "direct",
+        "document": "kt0603r_kento",
+        "value": 0.025
+      },
+      "supply_pins": []
+    },
+    "RVT100UF25V67RV0011": {
+      "capacitor": {
+        "dissipation_factor": {
+          "basis": "direct",
+          "condition": "120 Hz, 20 C",
+          "document": "elcap_knscha_rvt",
+          "value": 0.18
+        },
+        "rated_voltage_v": {
+          "basis": "direct",
+          "document": "elcap_knscha_rvt",
+          "value": 25.0
+        },
+        "ripple_current_max_a": {
+          "basis": "direct",
+          "condition": "100 kHz, 105 C",
+          "document": "elcap_knscha_rvt",
+          "value": 0.093
+        },
+        "ta_max_c": {
+          "basis": "direct",
+          "document": "elcap_knscha_rvt",
+          "value": 105.0
+        },
+        "technology": {
+          "basis": "direct",
+          "document": "elcap_knscha_rvt",
+          "value": "aluminium electrolytic"
+        },
+        "tolerance": {
+          "basis": "direct",
+          "document": "elcap_knscha_rvt",
+          "value": 0.2
+        }
+      },
+      "digital_inputs": {},
+      "digital_outputs": {},
+      "ground_pins": [],
+      "supply": {},
+      "supply_current_max_a": {
+        "basis": "direct",
+        "value": 0.0
+      },
+      "supply_pins": []
+    },
+    "SMAJ16A": {
+      "digital_inputs": {},
+      "digital_outputs": {},
+      "ground_pins": [],
+      "supply": {},
+      "supply_current_max_a": {
+        "basis": "direct",
+        "value": 0.0
+      },
+      "supply_pins": [],
+      "tvs": {
+        "breakdown_max_v": {
+          "at_current_a": 0.001,
+          "basis": "direct",
+          "document": "smaj_littelfuse",
+          "value": 19.7
+        },
+        "breakdown_min_v": {
+          "at_current_a": 0.001,
+          "basis": "direct",
+          "document": "smaj_littelfuse",
+          "value": 17.8
+        },
+        "clamp_v": {
+          "at_current_a": 15.4,
+          "basis": "direct",
+          "document": "smaj_littelfuse",
+          "value": 26.0
+        },
+        "leakage_max_a": {
+          "at_voltage_v": 16.0,
+          "basis": "direct",
+          "document": "smaj_littelfuse",
+          "value": 1e-06
+        },
+        "peak_pulse_power_w": {
+          "basis": "direct",
+          "document": "smaj_littelfuse",
+          "value": 400.0,
+          "waveform": "10/1000 us"
+        },
+        "reverse_standoff_v": {
+          "basis": "direct",
+          "document": "smaj_littelfuse",
+          "value": 16.0
+        }
+      }
+    },
+    "SMF16A": {
+      "digital_inputs": {},
+      "digital_outputs": {},
+      "ground_pins": [],
+      "land_pattern": {
+        "document": "smf16a_jingdao",
+        "pad_count": 2,
+        "pad_gap_mm": 2.0,
+        "pad_size_mm": [
+          1.2,
+          1.2
+        ],
+        "pin_map": {
+          "1": "K",
+          "2": "A"
+        }
+      },
+      "supply": {},
+      "supply_current_max_a": {
+        "basis": "direct",
+        "value": 0.0
+      },
+      "supply_pins": [],
+      "tvs": {
+        "breakdown_max_v": {
+          "at_current_a": 0.001,
+          "basis": "direct",
+          "document": "smf16a_jingdao",
+          "value": 19.7
+        },
+        "breakdown_min_v": {
+          "at_current_a": 0.001,
+          "basis": "direct",
+          "document": "smf16a_jingdao",
+          "value": 17.8
+        },
+        "clamp_v": {
+          "at_current_a": 7.7,
+          "basis": "direct",
+          "document": "smf16a_jingdao",
+          "value": 26.0
+        },
+        "leakage_max_a": {
+          "at_voltage_v": 16.0,
+          "basis": "direct",
+          "document": "smf16a_jingdao",
+          "value": 1e-06
+        },
+        "peak_pulse_power_w": {
+          "basis": "direct",
+          "document": "smf16a_jingdao",
+          "value": 200.0,
+          "waveform": "10/1000 us"
+        },
+        "reverse_standoff_v": {
+          "basis": "direct",
+          "document": "smf16a_jingdao",
+          "value": 16.0
+        },
+        "rthja_c_per_w": {
+          "basis": "direct",
+          "document": "smf16a_jingdao",
+          "value": 180.0
+        },
+        "steady_power_w": {
+          "basis": "direct",
+          "condition": "TL 75 C",
+          "document": "smf16a_jingdao",
+          "value": 1.0
+        }
+      }
+    },
+    "STM32G030K8T6TR": {
+      "digital_inputs": {
+        "hysteresis_v": {
+          "basis": "direct",
+          "document": "stm32g030_st",
+          "value": 0.2
+        },
+        "vih_min": {
+          "fraction_of_supply": {
+            "basis": "direct",
+            "document": "stm32g030_st",
+            "value": 0.7
+          }
+        },
+        "vil_max": {
+          "fraction_of_supply": {
+            "basis": "direct",
+            "document": "stm32g030_st",
+            "value": 0.3
+          }
+        }
+      },
+      "digital_outputs": {},
+      "ground_pins": [
+        "5"
+      ],
+      "injection_current_max_a": {
+        "basis": "direct",
+        "document": "stm32g030_st",
+        "polarity": "negative",
+        "value": 0.005
+      },
+      "input_leakage_max_a": {
+        "basis": "direct",
+        "document": "stm32g030_st",
+        "value": 7e-08
+      },
+      "input_voltage_max_v": {
+        "basis": "direct",
+        "document": "stm32g030_st",
+        "note": "min(VDD + 3.6, 5.5)",
+        "value": 5.5
+      },
+      "input_voltage_min_v": {
+        "basis": "direct",
+        "document": "stm32g030_st",
+        "value": -0.3
+      },
+      "io_sink_max_a": {
+        "basis": "direct",
+        "document": "stm32g030_st",
+        "value": 0.015
+      },
+      "io_source_max_a": {
+        "basis": "direct",
+        "document": "stm32g030_st",
+        "value": 0.015
+      },
+      "land_pattern": {
+        "document": "stm32g030_st",
+        "package": "LQFP-32 7x7 mm",
+        "pad_count": 32,
+        "pitch_mm": 0.8
+      },
+      "oscillator": {
+        "hsi16_max_hz": {
+          "basis": "direct",
+          "condition": "VDD 3.0 V, TA 30 C",
+          "document": "stm32g030_st",
+          "value": 16080000.0
+        },
+        "hsi16_min_hz": {
+          "basis": "direct",
+          "condition": "VDD 3.0 V, TA 30 C",
+          "document": "stm32g030_st",
+          "value": 15880000.0
+        },
+        "supply_drift_max": {
+          "basis": "direct",
+          "document": "stm32g030_st",
+          "value": 0.0005
+        },
+        "supply_drift_min": {
+          "basis": "direct",
+          "document": "stm32g030_st",
+          "value": -0.001
+        },
+        "temperature_drift_max": {
+          "basis": "direct",
+          "condition": "TA -40 to 85 C",
+          "document": "stm32g030_st",
+          "value": 0.015
+        },
+        "temperature_drift_min": {
+          "basis": "direct",
+          "condition": "TA -40 to 85 C",
+          "document": "stm32g030_st",
+          "value": -0.02
+        }
+      },
+      "pin_capacitance_f": {
+        "basis": "direct",
+        "document": "stm32g030_st",
+        "statistic": "typical",
+        "value": 5e-12
+      },
+      "pull_resistor_ohm": {
+        "max": {
+          "basis": "direct",
+          "document": "stm32g030_st",
+          "value": 55000.0
+        },
+        "min": {
+          "basis": "direct",
+          "document": "stm32g030_st",
+          "value": 25000.0
+        }
+      },
+      "supply": {
+        "max_v": {
+          "basis": "direct",
+          "document": "stm32g030_st",
+          "value": 3.6
+        },
+        "min_v": {
+          "basis": "direct",
+          "document": "stm32g030_st",
+          "value": 2.0
+        }
+      },
+      "supply_current_max_a": {
+        "basis": "direct",
+        "condition": "Run, 16 MHz from flash, TJ 85 C",
+        "document": "stm32g030_st",
+        "value": 0.0029
+      },
+      "supply_pins": [
+        "4"
+      ],
+      "thermal": {
+        "ta_max_c": {
+          "basis": "direct",
+          "document": "stm32g030_st",
+          "value": 85.0
+        },
+        "ta_min_c": {
+          "basis": "direct",
+          "document": "stm32g030_st",
+          "value": -40.0
+        },
+        "tj_max_c": {
+          "basis": "direct",
+          "document": "stm32g030_st",
+          "value": 105.0
+        }
+      }
+    },
+    "TPD1E10B06DPYR": {
+      "clamp_voltage_v": {
+        "1": {
+          "basis": "direct",
+          "document": "tpd1e10b06_ti",
+          "value": 10.0
+        },
+        "5": {
+          "basis": "direct",
+          "document": "tpd1e10b06_ti",
+          "value": 14.0
+        }
+      },
+      "digital_inputs": {},
+      "digital_outputs": {},
+      "ground_pins": [],
+      "land_pattern": {
+        "document": "tpd1e10b06_ti",
+        "pad_centres_mm": [
+          [
+            -0.35,
+            0.0
+          ],
+          [
+            0.35,
+            0.0
+          ]
+        ],
+        "pad_count": 2,
+        "pad_size_mm": [
+          0.3,
+          0.5
+        ]
+      },
+      "leakage_current_max_a": {
+        "at_voltage_v": 5.0,
+        "basis": "direct",
+        "document": "tpd1e10b06_ti",
+        "value": 1e-07
+      },
+      "reverse_standoff_v": {
+        "basis": "direct",
+        "document": "tpd1e10b06_ti",
+        "value": 5.5
+      },
+      "supply": {},
+      "supply_current_max_a": {
+        "basis": "direct",
+        "document": "tpd1e10b06_ti",
+        "value": 1e-07
+      },
+      "supply_pins": []
+    }
+  },
+  "schema_version": 2
+}

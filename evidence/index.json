@@ -1,0 +1,253 @@
+{
+  "documents": {
+    "ao3400a_aos": {
+      "applies_to": [
+        "AO3400A"
+      ],
+      "bytes": 491520,
+      "document_id": "AO3400A Rev 3, December 2011",
+      "file": "datasheets/ao3400a_aos.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "e5bfeef6cd3aa209f2e191ba42d5616259e8e7143ff01ed6c532b8ec3b13ab73",
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/130876b936da464599428c58fd8de8f6.pdf"
+    },
+    "ao3401a_aos": {
+      "applies_to": [
+        "AO3401A"
+      ],
+      "bytes": 326568,
+      "document_id": "AO3401A Rev 3.1, December 2023",
+      "file": "datasheets/ao3401a_aos.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "0d8e3261ae280e007b5837fff60c55142f2d92af71edc4d02aee6f7a760a785c",
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/fee353dd1e9e0bc90b295f14f381aa4c.pdf"
+    },
+    "ao4407a_aos": {
+      "applies_to": [
+        "AO4407A"
+      ],
+      "bytes": 134547,
+      "document_id": "AO4407A Rev3, Jan 2008",
+      "file": "datasheets/ao4407a_aos.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "747519e70105cd648686595995dc8cd25f218d8a0c76f56b1e5ee34755312e0d",
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/6bf17916e7274c4fb32122c6ec48f2db.pdf"
+    },
+    "b5819w_jscj": {
+      "applies_to": [
+        "B5819W SL"
+      ],
+      "bytes": 745783,
+      "document_id": "Jiangsu Changjing B5819W SOD-123 Schottky datasheet",
+      "file": "datasheets/b5819w_jscj.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "1a0fd53a8ed6c62591a3983fd4c29b607975d30ba96c9381679109461399d442",
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/4ac2c059be7c462694ab0715ce987a85.pdf"
+    },
+    "elcap_knscha_rvt": {
+      "applies_to": [
+        "RVT100UF25V67RV0011"
+      ],
+      "bytes": 653323,
+      "document_id": "KNSCHA RVT series SMD aluminium electrolytic specification",
+      "file": "datasheets/elcap_knscha_rvt.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "07e989288c3933b21ce18acf0cbb539e7109151173ec382a0a355072a2653d40",
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/e7e9594ab11f940fdef4c48584211b89.pdf"
+    },
+    "fan_4wire_intel": {
+      "applies_to": [
+        "4-wire fan interface"
+      ],
+      "bytes": 117662,
+      "document_id": "4-Wire Pulse Width Modulation (PWM) Controlled Fans Specification, Revision 1.3, September 2005",
+      "file": "datasheets/fan_4wire_pwm_intel.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "58c014801d69b1538975b14c05bafbe554f6c386eb7f443703ae44a246d4122c",
+      "url": "https://glkinst.com/cables/cable_pics/4_Wire_PWM_Spec.pdf"
+    },
+    "fanheader_2510_cax": {
+      "applies_to": [
+        "KF2510-4AGW-GW"
+      ],
+      "bytes": 67585,
+      "document_id": "2510 wire-to-board connector specification PB131 version 17",
+      "file": "datasheets/fanheader_2510_cax.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "3197e99636059bd164c6c751677663f049c01e3b2d4dabd330aeea28b3fbfaf1",
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/ca7b10a9292dd87d34a6a79c45e2045c.pdf"
+    },
+    "header1x3_kinghelm": {
+      "applies_to": [
+        "KH-2.54PH180-1X3P-L11.5"
+      ],
+      "bytes": 226216,
+      "file": "datasheets/header1x3_kinghelm.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "3931b4b542614285127260b4a492650972c3fd83d6ad2142520ee1a36f6c89f4",
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/d6b219f8eaec54d3e4d25f61d08e45ba.pdf"
+    },
+    "header1x5_kinghelm": {
+      "applies_to": [
+        "KH-2.54PH180-1X5P-L11.5"
+      ],
+      "bytes": 226222,
+      "file": "datasheets/header1x5_kinghelm.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "3bc2ce00ab6d9dc8e45b2222ccf5677a092bb7c8f4e0a365a07104f958596a81",
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/543df74cc4da0256c46d4113479c5bcc.pdf"
+    },
+    "ht75rxx_holtek": {
+      "applies_to": [
+        "HT75R33-1A"
+      ],
+      "bytes": 1159036,
+      "document_id": "Holtek HT75Rxx-1 30V 150mA LDO, Rev. 1.01, 2025-12-03",
+      "file": "datasheets/ht75rxx_holtek.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "009b90a895884be911ac67b3781f0134f76d845c2f351e15dfefda153de54438",
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/59abfa7ca0c1b0cd081d8e8f60c28ed0.pdf"
+    },
+    "kf128_cixikefa": {
+      "applies_to": [
+        "KF128-5.08-2P-AA"
+      ],
+      "bytes": 434784,
+      "document_id": "Cixi Kefa KF128-5.08 drawing",
+      "file": "datasheets/kf128_cixikefa.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "4781221a025b068464bce493173984ac1e90efb9db90c1433e1e448ea9bdaead",
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/29da5b9f86f95d4ff856cbb6af0595a9.pdf"
+    },
+    "kt0603r_kento": {
+      "applies_to": [
+        "KT-0603R"
+      ],
+      "bytes": 610865,
+      "document_id": "Hubei KENTO KT-0603R specification",
+      "file": "datasheets/kt0603r_kento.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "a3bac1cc9c59cb306ad03512945cce12c87bb54252abc223b796e1d20d41d4a1",
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/011ec3e8cb1e825f6961d29bc4db4c7a.pdf"
+    },
+    "mlcc_10uf_samsung": {
+      "applies_to": [
+        "CL21A106KAYNNNE"
+      ],
+      "bytes": 7856403,
+      "document_id": "Samsung CL21A106KAYNNNE specification",
+      "file": "datasheets/mlcc_10uf_samsung.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "96baebe4bd0ce363e87be28b5b003f511f1502e084a6fc4f02333ded56c808f6",
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/02336ea48ea44ca18c72517dd3cb7b47.pdf"
+    },
+    "mlcc_yageo_cc0603": {
+      "applies_to": [
+        "CC0603KRX7R9BB104",
+        "CC0603KRX7R9BB102"
+      ],
+      "bytes": 1131214,
+      "document_id": "YAGEO CC series 0603 MLCC specification",
+      "file": "datasheets/mlcc_yageo_cc0603.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "61a606825ab314ea318cfb5362848a62fdffb851efa9818d642e9a541c56a648",
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf"
+    },
+    "pptc_jk_msmd200_jinrui": {
+      "applies_to": [
+        "JK-MSMD200-24V"
+      ],
+      "bytes": 267741,
+      "document_id": "JinRui JK-mSMD200 PPTC devices, Edition A0",
+      "file": "datasheets/pptc_jk_msmd200_jinrui.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "4bd69de16ae667f35bd725f707b0da11cd8d0049359db01ab9a52068cff3936a",
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/14df65c86fb650ee5ee4c7432d762291.pdf"
+    },
+    "pptc_jk_msmd_series_jinrui": {
+      "applies_to": [
+        "JK-mSMD200 thermal derating and pad layout"
+      ],
+      "bytes": 322237,
+      "document_id": "JinRui JK-mSMD Series 1812 PPTC specification",
+      "file": "datasheets/pptc_jk_msmd_series_jinrui.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "d4e36eeede2559ddbc57102c3560cab21c7ae979a6dda53636680c0a7c7d273b",
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/bf3f0b74de54755047f1f9ac46a3e07e.pdf"
+    },
+    "res_0603_uniroyal": {
+      "applies_to": [
+        "0603WAF470JT5E",
+        "0603WAF1000T5E",
+        "0603WAF1501T5E",
+        "0603WAF2201T5E",
+        "0603WAF4701T5E",
+        "0603WAF1002T5E",
+        "0603WAF3302T5E",
+        "0603WAF1003T5E"
+      ],
+      "bytes": 467557,
+      "document_id": "Uniroyal 0603W chip resistor series specification",
+      "file": "datasheets/res_0603_uniroyal.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "11cd644d5d8a34a6d12775afb80bf58d8fc11f0c3b700dbd0f7a59942ceaa5ef",
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf"
+    },
+    "res_0603_zero_uniroyal": {
+      "applies_to": [
+        "0603WAF0000T5E"
+      ],
+      "bytes": 861204,
+      "document_id": "Uniroyal 0603 zero-ohm jumper specification",
+      "file": "datasheets/res_0603_zero_uniroyal.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "d20b4e5f35745009db079d282eee44b798b9bd27c26033ae50d6a7cd4fc6b9cb",
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/f42da6c80a0747bae77c2f98f4e46d1d.pdf"
+    },
+    "smaj_littelfuse": {
+      "applies_to": [
+        "SMAJ16A"
+      ],
+      "bytes": 1009698,
+      "document_id": "Littelfuse SMAJ series 400 W TVS datasheet",
+      "file": "datasheets/smaj_littelfuse.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "3f987f8fc0988aae0f14259b9d1953f26bdfe2525bbc4fc636477f6b221fc38a",
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/bf298e2c0542e0172af23908598fa548.pdf"
+    },
+    "smf16a_jingdao": {
+      "applies_to": [
+        "SMF16A"
+      ],
+      "bytes": 97783,
+      "document_id": "Jingdao SMF series 200 W SOD-123FL TVS datasheet",
+      "file": "datasheets/smf16a_jingdao.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "815402489fb370678b50ec2cc9ec01b51917b7d4b54d25eae2ef6e473fde1ecf",
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/e2079ce6902d97aebf17ffdc9542d2e7.pdf"
+    },
+    "stm32g030_st": {
+      "applies_to": [
+        "STM32G030K8T6TR"
+      ],
+      "bytes": 1495458,
+      "document_id": "STM32G030x6/x8 datasheet DS12991 Rev 3",
+      "file": "datasheets/stm32g030_st.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "bd4d70f72b2e82c5965a2b92ef3b9c96ad48c0ecdf195cf900d14cd47bff09f5",
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/753f35401d4598e355b1dd55569495e1.pdf"
+    },
+    "tpd1e10b06_ti": {
+      "applies_to": [
+        "TPD1E10B06DPYR"
+      ],
+      "bytes": 2371535,
+      "document_id": "SLLSEB1G, revised August 2024",
+      "file": "datasheets/tpd1e10b06_ti.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "6ffe72cb5f5e607fcafd05eef9809632402241eb44cd859a3652f43a35323da9",
+      "url": "https://www.ti.com/lit/ds/symlink/tpd1e10b06.pdf"
+    }
+  },
+  "schema_version": 1
+}

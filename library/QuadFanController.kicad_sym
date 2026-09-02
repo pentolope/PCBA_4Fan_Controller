@@ -1,0 +1,681 @@
+(kicad_symbol_lib
+	(version 20251024)
+	(generator "quad-fan-controller-design-source")
+	(generator_version "10.0")
+	(symbol "HT75Rxx-1"
+		(pin_names
+			(offset 1.016)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Reference" "U"
+			(at 0 17.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "HT75Rxx-1"
+			(at 0 15.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-89-3"
+			(at 0 12.70 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/59abfa7ca0c1b0cd081d8e8f60c28ed0.pdf"
+			(at 0 10.16 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_fp_filters" "SOT?89*"
+			(at 0 7.62 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(symbol "HT75Rxx-1_0_1"
+			(rectangle
+				(start -5.08 3.81)
+				(end 5.08 -3.81)
+				(stroke
+					(width 0.254)
+					(type default)
+				)
+				(fill
+					(type background)
+				)
+			)
+		)
+		(symbol "HT75Rxx-1_1_1"
+			(pin power_in line
+				(at -7.62 0.00 0)
+				(length 2.54)
+				(name "VIN"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+				(number "2"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+			)
+			(pin power_out line
+				(at 7.62 0.00 180)
+				(length 2.54)
+				(name "VOUT"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+				(number "3"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+			)
+			(pin power_in line
+				(at 0.00 -6.35 90)
+				(length 2.54)
+				(name "GND"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+				(number "1"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+			)
+		)
+	)
+	(symbol "AO4407A"
+		(pin_names
+			(offset 1.016)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Reference" "Q"
+			(at 0 17.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "AO4407A"
+			(at 0 15.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm"
+			(at 0 12.70 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://datasheet.lcsc.com/datasheet/pdf/6bf17916e7274c4fb32122c6ec48f2db.pdf"
+			(at 0 10.16 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_fp_filters" "SOIC*3.9x4.9mm*P1.27mm*"
+			(at 0 7.62 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(symbol "AO4407A_0_1"
+			(rectangle
+				(start -5.08 6.35)
+				(end 5.08 -6.35)
+				(stroke
+					(width 0.254)
+					(type default)
+				)
+				(fill
+					(type background)
+				)
+			)
+		)
+		(symbol "AO4407A_1_1"
+			(pin passive line
+				(at -7.62 2.54 0)
+				(length 2.54)
+				(name "S"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+				(number "1"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+			)
+			(pin passive line
+				(at -7.62 0.00 0)
+				(length 2.54)
+				(name "S"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+				(number "2"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+			)
+			(pin passive line
+				(at -7.62 -2.54 0)
+				(length 2.54)
+				(name "S"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+				(number "3"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+			)
+			(pin input line
+				(at 0.00 -8.89 90)
+				(length 2.54)
+				(name "G"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+				(number "4"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+			)
+			(pin passive line
+				(at 7.62 3.81 180)
+				(length 2.54)
+				(name "D"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+				(number "5"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+			)
+			(pin passive line
+				(at 7.62 1.27 180)
+				(length 2.54)
+				(name "D"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+				(number "6"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+			)
+			(pin passive line
+				(at 7.62 -1.27 180)
+				(length 2.54)
+				(name "D"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+				(number "7"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+			)
+			(pin passive line
+				(at 7.62 -3.81 180)
+				(length 2.54)
+				(name "D"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+				(number "8"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+			)
+		)
+	)
+	(symbol "FanHeader_1x04"
+		(pin_names
+			(offset 1.016)
+		)
+		(exclude_from_sim yes)
+		(in_bom yes)
+		(on_board yes)
+		(property "Reference" "J"
+			(at 0 17.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "FanHeader_1x04"
+			(at 0 15.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "QuadFanController:FanHeader_2510_1x04_P2.54mm_Horizontal"
+			(at 0 12.70 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 10.16 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_fp_filters" "FanHeader*"
+			(at 0 7.62 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(symbol "FanHeader_1x04_0_1"
+			(rectangle
+				(start -2.54 5.08)
+				(end 2.54 -5.08)
+				(stroke
+					(width 0.254)
+					(type default)
+				)
+				(fill
+					(type background)
+				)
+			)
+		)
+		(symbol "FanHeader_1x04_1_1"
+			(pin passive line
+				(at -5.08 3.81 0)
+				(length 2.54)
+				(name "GND"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+				(number "1"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+			)
+			(pin passive line
+				(at -5.08 1.27 0)
+				(length 2.54)
+				(name "+12V"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+				(number "2"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+			)
+			(pin passive line
+				(at -5.08 -1.27 0)
+				(length 2.54)
+				(name "SENSE"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+				(number "3"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+			)
+			(pin passive line
+				(at -5.08 -3.81 0)
+				(length 2.54)
+				(name "CONTROL"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+				(number "4"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+			)
+		)
+	)
+	(symbol "TPD1E10B06"
+		(pin_numbers
+			(hide yes)
+		)
+		(pin_names
+			(offset 1.016)
+			(hide yes)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Reference" "D"
+			(at 0 17.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TPD1E10B06"
+			(at 0 15.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "QuadFanController:TI_X1SON-2_1.0x0.6mm_P0.65mm"
+			(at 0 12.70 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/tpd1e10b06.pdf"
+			(at 0 10.16 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_fp_filters" "TI_X1SON-2_1.0x0.6mm_P0.65mm"
+			(at 0 7.62 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(symbol "TPD1E10B06_0_1"
+			(rectangle
+				(start -1.27 1.27)
+				(end 1.27 -1.27)
+				(stroke
+					(width 0.254)
+					(type default)
+				)
+				(fill
+					(type background)
+				)
+			)
+		)
+		(symbol "TPD1E10B06_1_1"
+			(pin passive line
+				(at 0.00 -3.81 90)
+				(length 2.54)
+				(name "A1"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+				(number "1"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+			)
+			(pin passive line
+				(at 0.00 3.81 270)
+				(length 2.54)
+				(name "A2"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+				(number "2"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+			)
+		)
+	)
+	(symbol "ScrewTerminal_1x02"
+		(pin_names
+			(offset 1.016)
+		)
+		(exclude_from_sim yes)
+		(in_bom yes)
+		(on_board yes)
+		(property "Reference" "J"
+			(at 0 17.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "ScrewTerminal_1x02"
+			(at 0 15.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 0 12.70 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 10.16 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_fp_filters" "TerminalBlock*"
+			(at 0 7.62 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(symbol "ScrewTerminal_1x02_0_1"
+			(rectangle
+				(start -2.54 3.81)
+				(end 2.54 -3.81)
+				(stroke
+					(width 0.254)
+					(type default)
+				)
+				(fill
+					(type background)
+				)
+			)
+		)
+		(symbol "ScrewTerminal_1x02_1_1"
+			(pin passive line
+				(at -5.08 1.27 0)
+				(length 2.54)
+				(name "1"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+				(number "1"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+			)
+			(pin passive line
+				(at -5.08 -1.27 0)
+				(length 2.54)
+				(name "2"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+				(number "2"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+			)
+		)
+	)
+)
