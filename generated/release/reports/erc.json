@@ -1,7 +1,7 @@
 {
   "$schema": "https://schemas.kicad.org/erc.v1.json",
   "coordinate_units": "mm",
-  "date": "2026-09-03T01:14:11",
+  "date": "2026-09-03T01:58:32",
   "ignored_checks": [],
   "included_severities": [
     "error",
@@ -18,10 +18,10 @@
   ],
   "source": "quad_fan_controller.kicad_sch",
   "source_sha256": "f2927e250995e23a8f923d060a7f9e58f02fd3f3d83184918d7a2f02d38cf7aa",
-  "source_closure_sha256": "b3f8b899aec456dc0dfbb78dff5394f097ab4a2c6268ba5768f118146bb00332",
+  "source_closure_sha256": "f4695cdc088336ede12c4decbebb258a40f4743f46a4e99b8e2d3bb7a9262489",
   "source_closure": {
-    "<configuration>": "a8bbeea28332c5a72cb0e6793a94f055665193ec213c15f8c3afa3bf4b91ddfb",
-    "<toolkit>": "f4d39047427f111b5c9f58b884e400c7536f05e0+clean",
+    "<configuration>": "495406e443df6baa7287ba54127cdff82de5431914e819627873d93f8c7cb1b0",
+    "<toolkit>": "b44168540c62fa7805d12de0740ea17bdae10514+clean",
     "components/jlcpcb.json": "81f5f7b41cd3cc851eab4d144486d91078e70642f8bfd31b615fbf3ddbffe73a",
     "components/parameters.json": "079f24e54d8ca1263acdbeb8fe8e16d8491990eaeb72fb44cf4abe4dc4d7eb77",
     "evidence/index.json": "5f22a2aa3c76cc63e5ef219781f35ba77f5606aecd9a4e9d33ec872c2f209f52",

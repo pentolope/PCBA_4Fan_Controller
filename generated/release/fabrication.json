@@ -3,12 +3,12 @@
   "board_id": "quad_fan_controller",
   "constraint_version": "layout-stage-2026-09-02",
   "release_profile": "jlcpcb-2layer-assembled",
-  "generated_utc": "2026-09-03T07:14:15.117104+00:00",
-  "source_closure_sha256": "b3f8b899aec456dc0dfbb78dff5394f097ab4a2c6268ba5768f118146bb00332",
+  "generated_utc": "2026-09-03T07:58:36.329454+00:00",
+  "source_closure_sha256": "f4695cdc088336ede12c4decbebb258a40f4743f46a4e99b8e2d3bb7a9262489",
   "source_closure_files": 15,
   "source_closure": {
-    "<configuration>": "a8bbeea28332c5a72cb0e6793a94f055665193ec213c15f8c3afa3bf4b91ddfb",
-    "<toolkit>": "f4d39047427f111b5c9f58b884e400c7536f05e0+clean",
+    "<configuration>": "495406e443df6baa7287ba54127cdff82de5431914e819627873d93f8c7cb1b0",
+    "<toolkit>": "b44168540c62fa7805d12de0740ea17bdae10514+clean",
     "components/jlcpcb.json": "81f5f7b41cd3cc851eab4d144486d91078e70642f8bfd31b615fbf3ddbffe73a",
     "components/parameters.json": "079f24e54d8ca1263acdbeb8fe8e16d8491990eaeb72fb44cf4abe4dc4d7eb77",
     "evidence/index.json": "5f22a2aa3c76cc63e5ef219781f35ba77f5606aecd9a4e9d33ec872c2f209f52",
@@ -28,7 +28,7 @@
     "kicad_cli": "kicad-cli"
   },
   "toolkit": {
-    "commit": "f4d39047427f111b5c9f58b884e400c7536f05e0",
+    "commit": "b44168540c62fa7805d12de0740ea17bdae10514",
     "working_tree_dirty": false,
     "detail": "git HEAD of the toolkit checkout that executed this validation"
   },
@@ -44,20 +44,20 @@
   "artifacts": {
     "bom.csv": "85a9cf3805d9c5de6792119d96005adaa814773f17b5d3682203a39fe9ceb4d8",
     "cpl.csv": "4a68f66f6fa9fdc198fe0ff4b91f02a755f8945bddd5b97443c8505f6ef1a6b8",
-    "gerbers/quad_fan_controller-B_Cu.gbr": "499e36a8d7b23e08fb75bc947dd13ed34aa2ebc4d9c11a384522efe326cb0dae",
-    "gerbers/quad_fan_controller-B_Mask.gbr": "db6b372b2648bdc680929ee18683d1a4d23a5d4ef420ead8e8dd366f9c8bc635",
-    "gerbers/quad_fan_controller-B_Silkscreen.gbr": "046eb2d952f83b37143c7bdd533b1b8e9198f289d2442f4cca494a9265c88fa9",
-    "gerbers/quad_fan_controller-Edge_Cuts.gbr": "6d8bb4eb0320ef950efb6cc14f24df86e2fdba0b3ba97206fdf74ca1ab11d856",
-    "gerbers/quad_fan_controller-F_Cu.gbr": "65cd537ccdd856d69cff2a2eb0a1e0079838ea394999c2650dec7c0c1e9e4c26",
-    "gerbers/quad_fan_controller-F_Mask.gbr": "b7fa5747413da6adf53b8fd1887ed3a2593469a40815c8c35e8a1ed0c1360003",
-    "gerbers/quad_fan_controller-F_Paste.gbr": "0aec6be5504418a3789dd7cfd87e2c28f0c47d39e8876c88e20d0b8138fbf30e",
-    "gerbers/quad_fan_controller-F_Silkscreen.gbr": "2b931e98ca14d94d6e530e513346ab3271b9fa001ae6386f5cb9318041fac181",
-    "gerbers/quad_fan_controller-NPTH.drl": "fa4dfda35cf0fb5b5b0cf8ef0aed40954a416569d7054a636b1f2373b1230d8c",
-    "gerbers/quad_fan_controller-PTH.drl": "cc5e87c7136e449ead00c6c019e215e5152295663a2e7ded72c494b77199648b",
-    "gerbers/quad_fan_controller-job.gbrjob": "b2d576984516f8ae6832e2b5a00f862f053b4872fb85c5d1fa244e861217eba3",
-    "quad_fan_controller-fabrication.zip": "42e52fdebbdea3000b38e4fce73b317b92a9f11e5a1cca8f31aaee8082b8703a",
-    "reports/drc.json": "1f9a4ec9f22621fb501e50139afe19a25755b7ad4eb64d1357d3b8f84afa4b85",
-    "reports/erc.json": "dbbdd656b5b4f04c1c0653aed354a2b4c34f36eca069e38e04ad303c4e153c87"
+    "gerbers/quad_fan_controller-B_Cu.gbr": "299e817f48e68280ea97c4ecd5addb0983003c4885f9cbf477965588993ba3c6",
+    "gerbers/quad_fan_controller-B_Mask.gbr": "886c5171d71b75ed9106ced82fff206f47ccaa978ee740f44defb4c3d1b35811",
+    "gerbers/quad_fan_controller-B_Silkscreen.gbr": "fec607e31808c62be58fb1eff40e37be6305e01f47a73890eeb31ac3a6b42c18",
+    "gerbers/quad_fan_controller-Edge_Cuts.gbr": "66492b22523f4450f436a02e815230573cec5cf86302dec4b5a6ba9720fefcaf",
+    "gerbers/quad_fan_controller-F_Cu.gbr": "7f99c53ed8c5ea2abf1e851e17501c307bb0790d120471278277d8110c7ec2a3",
+    "gerbers/quad_fan_controller-F_Mask.gbr": "43405fbb56fac4ab5ba97ea3937adb60ddf82cba3d9c1ffff4122e7db9df8d4a",
+    "gerbers/quad_fan_controller-F_Paste.gbr": "48e05ebbcffa9d1b4d7e3e0cc35acddb8b84eeb3d016788c6c133161d0319ba8",
+    "gerbers/quad_fan_controller-F_Silkscreen.gbr": "fd37cd499725eee8ba7ca28af530811272a93b029ef5629f8fff310fb555133f",
+    "gerbers/quad_fan_controller-NPTH.drl": "ab2627c0ce17ac4176fbb108eac4a452c299a35f62911a776ffda4bb84f00d12",
+    "gerbers/quad_fan_controller-PTH.drl": "ed559bb48855470cd1c64d477505e8655ff1ff6380801a5ba87e4f72e9270c30",
+    "gerbers/quad_fan_controller-job.gbrjob": "f9d0c98525802d2d406755b4af7cdb48490aaa1b2083cd22c184c6106cfc1812",
+    "quad_fan_controller-fabrication.zip": "8bda843cba6f5980cab4ef16535bd81f0443900ab3d4b4d8fa80a54bb73f569c",
+    "reports/drc.json": "1df73a8916d5255769c178f77a2ac7a2eebe6595e96d127b1343e91821e64167",
+    "reports/erc.json": "3d02f835835082c9361c385abdac78b066b36c37686ab68431fb306ddbd7a994"
   },
   "excluded_layers": []
 }
