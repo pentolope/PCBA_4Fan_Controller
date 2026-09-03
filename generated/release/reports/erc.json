@@ -1,7 +1,7 @@
 {
   "$schema": "https://schemas.kicad.org/erc.v1.json",
   "coordinate_units": "mm",
-  "date": "2026-09-03T10:27:55",
+  "date": "2026-09-03T15:09:36",
   "ignored_checks": [],
   "included_severities": [
     "error",
@@ -18,22 +18,31 @@
   ],
   "source": "quad_fan_controller.kicad_sch",
   "source_sha256": "f2927e250995e23a8f923d060a7f9e58f02fd3f3d83184918d7a2f02d38cf7aa",
-  "source_closure_sha256": "f7e604f8d1666cff1aa78c4f4c2708f9f273770be1a5a0600da3386828662918",
+  "source_closure_sha256": "57f1762490407b229e5e8f8fc1d0225c9660855935de5477f5499330b28308c1",
   "source_closure": {
     "<configuration>": "d4306393ee8d92ae775de9fce4b7134cc7454b644a0c902cdbd92104920c07e4",
-    "<toolkit>": "0c051f23f5cb7c08360e7db4ab231ec321a4459c+clean",
+    "<toolkit>": "7f51066b4095042726be2be3824c3b9ff2f5158a+clean",
     "components/jlcpcb.json": "81f5f7b41cd3cc851eab4d144486d91078e70642f8bfd31b615fbf3ddbffe73a",
     "components/parameters.json": "079f24e54d8ca1263acdbeb8fe8e16d8491990eaeb72fb44cf4abe4dc4d7eb77",
     "evidence/index.json": "5f22a2aa3c76cc63e5ef219781f35ba77f5606aecd9a4e9d33ec872c2f209f52",
     "fab/physical_inputs.json": "e472ad54458e5ade34a03a16f6718d1383bd781e85fba835fcbc724de394779a",
     "fab/requirements.json": "0a4a44935045c30dcb07b379f59902df4a84e0ebabeb0bf0da7941c222ae5e4d",
     "fab/selection.json": "d2a3e2a71f61303a8a420cbed2e65feb940d2819769230cddf845b2c11bf9f9c",
+    "fp-lib-table": "9aab881f85570faf8635b1413f0861627191928c928dc382d6473955e843c52d",
+    "library/QuadFanController.kicad_sym": "7394c3a4db72bb48a5c7d6b08a1c1a7e351d32595859c070a77ee2128f362441",
+    "library/QuadFanController.pretty/D_SOD-123FL_1.2x1.2mm_P3.2mm.kicad_mod": "87a9ac7dd89a920996b1b1a3fd5f0f7352985696729280c25a8be91de66d4a86",
+    "library/QuadFanController.pretty/FanHeader_2510_1x04_P2.54mm_Horizontal.kicad_mod": "fd4e7ffa150e86750e6a9eb73d54b1bb2dbd0acb1fc593049c90c2da3c58f081",
+    "library/QuadFanController.pretty/PTC_1812_Jinrui_JK-mSMD.kicad_mod": "b67e70a3a10d6cc6d2d73b7a1b881a8cf6e06116342f4b9579b36202d421864f",
+    "library/QuadFanController.pretty/TI_X1SON-2_1.0x0.6mm_P0.65mm.kicad_mod": "cd6798715942882fa0f0cd39512ddffa9dba6e50a92a0237a40bf0c75cf1fcdc",
+    "library/QuadFanController.pretty/TerminalBlock_KF128-5.08_1x02_P5.08mm.kicad_mod": "ac3b0350e69aa9bf3ba49e8be5364c55d3baf6fcc4614f58fbd32822465d0ef2",
     "quad_fan_controller.kicad_pcb": "48e892e9064533ce3a77fd35fd0b2249097fac385c7ac6f8d5ef667e9f84c861",
+    "quad_fan_controller.kicad_prl": "ff556ef8dbac5e5802c013b654ac42d2dae9115fcbea7725e5ee8d42a7fb46ab",
     "quad_fan_controller.kicad_pro": "b1592013a59434b8ff4f7fed3a9cd9a530a7988f82427daae2148d14a9ab4eb1",
     "quad_fan_controller.kicad_sch": "f2927e250995e23a8f923d060a7f9e58f02fd3f3d83184918d7a2f02d38cf7aa",
     "sim/pre_layout_control_edge.json": "6e319bbd83f8bbf3575d7d77f0fa43c31e31744ad0147f356845bba5997ffaea",
     "sim/pre_layout_logic_rail_inrush.json": "e4dbcb138cb1d44b4c1f5e1152412219d296f89a064b6de9dbe130af2654a48b",
     "sim/pre_layout_safe_state.json": "51df3a41e0f020958782df45814104001b3f823fa907d1fed6b62a995c0eaa5f",
-    "sim/pre_layout_sense_edge.json": "34ed43209e7f10d62adc0cdf4abd23e1efca3fa1d5a8fa7edfb4b0c7f69e5104"
+    "sim/pre_layout_sense_edge.json": "34ed43209e7f10d62adc0cdf4abd23e1efca3fa1d5a8fa7edfb4b0c7f69e5104",
+    "sym-lib-table": "49830b1217fadc0a6df6916aaf89a27148212518ec97e6ad155e9f24e652c069"
   }
 }
