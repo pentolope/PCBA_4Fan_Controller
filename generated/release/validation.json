@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
-  "generated_utc": "2026-09-03T08:53:58.734628+00:00",
-  "source_closure_sha256": "b9cb4709928563622049ba6af980d48ec386d9c1a256013a4a5afc0912db315b",
+  "generated_utc": "2026-09-03T16:28:28.140727+00:00",
+  "source_closure_sha256": "f7e604f8d1666cff1aa78c4f4c2708f9f273770be1a5a0600da3386828662918",
   "manifest": {
     "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/04_PCBA_4Fan_Controller/board/manifest.json",
     "sha256": "517e9b885fd5a2bc348cf21929217bb7dc6a4084d2a930f4a15659608db3a5a5",
@@ -13,7 +13,7 @@
     "kicad_cli": "/usr/bin/kicad-cli",
     "validation_implementation": {
       "toolkit_root": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/04_PCBA_4Fan_Controller/tooling/PCBA_AutoDesignAndTest",
-      "commit": "a0f53eb0a0245d7c12d10c3f31f39af1ba53cc43",
+      "commit": "0c051f23f5cb7c08360e7db4ab231ec321a4459c",
       "working_tree_dirty": false,
       "detail": "git HEAD of the toolkit checkout that executed this validation"
     },
@@ -160,7 +160,7 @@
         {
           "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/04_PCBA_4Fan_Controller/generated/release/quad_fan_controller-fabrication.zip",
           "name": "quad_fan_controller-fabrication.zip",
-          "sha256": "0df2a7f1e9a6e0f249a235c2ead7e0f371736f1d6837f624babbeaa4bbcb92e6"
+          "sha256": "dec9d70b7e8d82d2d56a1aec05bfb2654d3c19cb90c649ec4175dfd3bcb8d923"
         }
       ]
     },
@@ -173,8 +173,8 @@
         "fabrication_manifest": "fabrication.json",
         "artifacts_recorded": 16,
         "artifacts_present": 16,
-        "source_closure_sha256": "b9cb4709928563622049ba6af980d48ec386d9c1a256013a4a5afc0912db315b",
-        "recorded_source_closure_sha256": "b9cb4709928563622049ba6af980d48ec386d9c1a256013a4a5afc0912db315b"
+        "source_closure_sha256": "f7e604f8d1666cff1aa78c4f4c2708f9f273770be1a5a0600da3386828662918",
+        "recorded_source_closure_sha256": "f7e604f8d1666cff1aa78c4f4c2708f9f273770be1a5a0600da3386828662918"
       },
       "limits": {},
       "finding_count": 0,
@@ -183,7 +183,7 @@
         {
           "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/04_PCBA_4Fan_Controller/generated/release/fabrication.json",
           "name": "fabrication.json",
-          "sha256": "38e0b65bcb84fbb4d80a2f669d90f9e25a31bda79dc43262e74ef4989f2ba2bc"
+          "sha256": "b8ff96ea1676a6663218cc8847d945edb4832a5d9a40ecfdf56a98cd6ad51577"
         }
       ]
     },
@@ -534,10 +534,10 @@
         "rules_sha256": "b1592013a59434b8ff4f7fed3a9cd9a530a7988f82427daae2148d14a9ab4eb1",
         "constraint_manifest_sha256": "517e9b885fd5a2bc348cf21929217bb7dc6a4084d2a930f4a15659608db3a5a5",
         "kicad_version": "10.0.5",
-        "generated_utc": "2026-09-03T08:53:40.243850+00:00",
+        "generated_utc": "2026-09-03T16:28:06.739873+00:00",
         "report_meta": {
           "schema": "https://schemas.kicad.org/drc.v1.json",
-          "date": "2026-09-03T02:53:40",
+          "date": "2026-09-03T10:28:06",
           "kicad_version": "10.0.5",
           "source": "quad_fan_controller.kicad_pcb",
           "ignored_checks": [],
@@ -571,9 +571,9 @@
       "findings": [],
       "evidence": [
         {
-          "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/04_PCBA_4Fan_Controller/out/quad_fan_controller/20260903T085337Z-fb16a918/work/drc_authoritative.json",
+          "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/04_PCBA_4Fan_Controller/out/quad_fan_controller/20260903T162802Z-1be8923f/work/drc_authoritative.json",
           "name": "drc_authoritative.json",
-          "sha256": "cca05b0b1430a48794e4b6e206a9b7ddb0d3a90da86f2c22e1db8f38da0c398b"
+          "sha256": "1945a2b9b29fbfa165b9b8711acbb84c3c49e8c8b240381a4222fe50a0f5058a"
         }
       ]
     },
@@ -742,10 +742,10 @@
         "rules_sha256": "b1592013a59434b8ff4f7fed3a9cd9a530a7988f82427daae2148d14a9ab4eb1",
         "constraint_manifest_sha256": "517e9b885fd5a2bc348cf21929217bb7dc6a4084d2a930f4a15659608db3a5a5",
         "kicad_version": "10.0.5",
-        "generated_utc": "2026-09-03T08:53:42.178022+00:00",
+        "generated_utc": "2026-09-03T16:28:09.113165+00:00",
         "report_meta": {
           "schema": "https://schemas.kicad.org/erc.v1.json",
-          "date": "2026-09-03T02:53:42",
+          "date": "2026-09-03T10:28:08",
           "kicad_version": "10.0.5",
           "source": "quad_fan_controller.kicad_sch",
           "ignored_checks": [],
@@ -779,9 +779,9 @@
       "findings": [],
       "evidence": [
         {
-          "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/04_PCBA_4Fan_Controller/out/quad_fan_controller/20260903T085337Z-fb16a918/work/erc_authoritative.json",
+          "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/04_PCBA_4Fan_Controller/out/quad_fan_controller/20260903T162802Z-1be8923f/work/erc_authoritative.json",
           "name": "erc_authoritative.json",
-          "sha256": "2144134651e9724d4dac991a0dafed6417f59a67926e3a399f24f4da057e9084"
+          "sha256": "3eb6e10731cc4416dc4b1e810cb3de41638317dee931a22012e70c23c2c192c2"
         }
       ]
     },
@@ -893,7 +893,7 @@
       "reason": "all 2 committed report(s) bind the canonical digest of all 15 source inputs, and every one still matches",
       "measurements": {
         "source_closure_files": 15,
-        "source_closure_sha256": "b9cb4709928563622049ba6af980d48ec386d9c1a256013a4a5afc0912db315b",
+        "source_closure_sha256": "f7e604f8d1666cff1aa78c4f4c2708f9f273770be1a5a0600da3386828662918",
         "source_sha256": {
           "pcb": "48e892e9064533ce",
           "schematic": "f2927e250995e23a"
@@ -1070,7 +1070,7 @@
       "status": "PASS",
       "reason": "2 shipped copper layers match a fresh export by geometric symmetric difference (limit 0.05 mm2)",
       "measurements": {
-        "fresh_export_command": "pcb export gerbers --output /home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/04_PCBA_4Fan_Controller/out/quad_fan_controller/20260903T085337Z-fb16a918/work/fresh_gerbers --layers F.Cu,B.Cu,F.Paste,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask,Edge.Cuts --no-protel-ext --use-drill-file-origin --subtract-soldermask /home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/04_PCBA_4Fan_Controller/out/quad_fan_controller/20260903T085337Z-fb16a918/work/design/quad_fan_controller.kicad_pcb",
+        "fresh_export_command": "pcb export gerbers --output /home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/04_PCBA_4Fan_Controller/out/quad_fan_controller/20260903T162802Z-1be8923f/work/fresh_gerbers --layers F.Cu,B.Cu,F.Paste,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask,Edge.Cuts --no-protel-ext --use-drill-file-origin --subtract-soldermask /home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/04_PCBA_4Fan_Controller/out/quad_fan_controller/20260903T162802Z-1be8923f/work/design/quad_fan_controller.kicad_pcb",
         "fresh_export_exit": 0,
         "shipped_copper_layers": [
           "copper,l1,top",
